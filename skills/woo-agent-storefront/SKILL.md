@@ -68,7 +68,7 @@ Map categories with `woocommerce_set_feed_category_mapping` for the store's top-
 
 ### Step 4: Generate and verify
 
-`woocommerce_generate_feed`, then `woocommerce_get_feed_status` until every enabled format reports rows and a fresh timestamp. Fetch each public URL once and confirm it returns content (the pretty URL first, the /wp-json fallback if the host intercepts unknown paths). Confirm `/llms.txt` resolves at the site root. Surface any `cron_warning` from the status verbatim, with the fix (a real cron hitting wp-cron.php).
+`woocommerce_generate_feed`, then `woocommerce_get_feed_status` until every enabled format reports rows and a fresh timestamp. Open each public URL once and confirm it returns content (the pretty URL first, the /wp-json fallback if the host intercepts unknown paths). Confirm `/llms.txt` resolves at the site root. Surface any `cron_warning` from the status verbatim, with the fix (a real cron hitting wp-cron.php).
 
 ### Step 5: Register with each platform
 

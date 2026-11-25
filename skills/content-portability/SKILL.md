@@ -358,7 +358,7 @@ The skill must handle these scenarios gracefully:
 - **Mandatory snapshots**: Server-side snapshot taken before every import overwrite
 - **Non-destructive import**: Creates new content or overwrites with snapshot safety net
 - **Rollback ready**: Server-side snapshots enable one-click restoration via `wordpress_restore_snapshot`
-- **No credential exposure**: Only allowlisted meta is exported — no API keys, passwords, or sensitive plugin settings
+- **No credential exposure**: Only allowlisted meta is exported — no credentials, passwords, or sensitive plugin settings
 
 ## Honest Disclaimer
 

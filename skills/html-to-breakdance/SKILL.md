@@ -124,7 +124,7 @@ value copies, and you rarely need to hand-map anything.
 Three input modes:
 
 - **Mode A: pasted in the conversation.** The user pastes raw HTML directly.
-- **Mode B: URL.** The user gives a public URL; fetch the HTML via WebFetch or `/browse`. **Do NOT silently re-host external assets.** Flag external images so the user decides whether to mirror them.
+- **Mode B: URL.** The user gives a public URL; open the page and read its HTML. **Do NOT silently re-host external assets.** Flag external images so the user decides whether to mirror them.
 - **Mode C: file.** The user uploads or references a local HTML file path.
 
 In all modes, accept inline `<style>` blocks and external `<link rel=stylesheet>` references.

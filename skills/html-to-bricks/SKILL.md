@@ -77,10 +77,10 @@ Note that `respira_convert_html_to_builder` now preserves the document's own `:r
 Three input modes:
 
 - **Mode A — pasted in the conversation.** The user pastes raw HTML directly.
-- **Mode B — URL.** The user gives a public URL; fetch the HTML via WebFetch or `/browse`. **Do NOT silently re-host external assets**; flag external images so the user can decide to mirror them.
+- **Mode B — URL.** The user gives a public URL; open the page and read its HTML. **Do NOT silently re-host external assets**; flag external images so the user can decide to mirror them.
 - **Mode C — file.** The user uploads or references a local HTML file path.
 
-In all modes, also accept inline `<style>` blocks and external `<link rel=stylesheet>` references. For external stylesheets, fetch their text content.
+In all modes, also accept inline `<style>` blocks and external `<link rel=stylesheet>` references. For external stylesheets, read their text content from the page.
 
 ### Step 5 — Run the conversion
 

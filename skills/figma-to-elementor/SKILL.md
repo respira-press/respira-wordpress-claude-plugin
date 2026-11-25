@@ -44,14 +44,14 @@ Figma and Elementor describe a layout in very different ways. Figma stores a tre
 - **Complex vector art, masks, and blend modes** — exported as flattened images where possible, otherwise flagged.
 - **Auto-generated responsive breakpoints** — the build targets desktop from the frame; tablet/mobile are noted for manual adjustment unless the design provides explicit responsive frames.
 - **Theme builder parts** — headers, footers, archive/single templates are out of scope; this builds page content.
-- **Fetching Figma for you without access** — you must have Figma read access available to your agent (see Requirements).
+- **Reading Figma with no connector and no shared export** — with neither there is nothing to read; say so and ask for the export.
 
 ## Requirements
 
 - Respira for WordPress plugin installed and connected
 - The Respira tools available in the conversation
 - Elementor active on the target site (to write the page)
-- **Figma read access from your agent** — either a connected Figma MCP, or a Figma file/frame URL plus a Figma personal access token you can paste
+- **Figma design:** the Figma connector from the Claude directory, when it is already present in the conversation. If it is not, share the design as a frame export (an image) plus the values that matter: colours, type sizes and spacing.
 - Write access to create a draft duplicate with the new Elementor content
 
 ## Trigger Phrase
@@ -68,7 +68,7 @@ Figma and Elementor describe a layout in very different ways. Figma stores a tre
 
 ## Source: Figma
 
-Figma exposes a design as a tree of nodes. Read it with whatever Figma access the agent has: a connected Figma MCP, or the Figma REST API (`GET /v1/files/:key/nodes?ids=:id` for the selected frame, `GET /v1/files/:key/images` to export image fills) using a personal access token.
+Figma exposes a design as a tree of nodes. Read the selected frame's node tree through the Figma connector's tools when that connector is present in the conversation. When it is not, ask the person to share the design as a frame export (an image) plus the values that matter (colours, type sizes, spacing) and work from those. Never ask for a token and never call Figma yourself.
 
 Key node shapes to read:
 - `type`: `FRAME`, `GROUP`, `TEXT`, `RECTANGLE`, `ELLIPSE`, `VECTOR`, `LINE`, `COMPONENT`, `INSTANCE`
@@ -118,7 +118,7 @@ Respira writes Elementor as a simplified tree of `{ type, widget, settings, elem
 
 ### Phase 1: Read and audit
 1. Check that the Respira tools are available by calling `respira_get_site_context`; confirm Elementor is active via `respira_list_plugins`. If they are not: The Respira tools are not available in this conversation. This plugin does not add them. Stop here and tell the person.
-2. Read the chosen Figma frame's node tree via the agent's Figma access.
+2. Read the chosen Figma frame through the Figma connector's tools, or from the frame export the person shared.
 3. Build an inventory: node-type counts, smart-widget candidates, image fills to download, and flagged items (components with overrides, complex vectors/masks, prototyping, gradients beyond linear/radial).
 
 ### Phase 2: Build plan
@@ -177,7 +177,7 @@ Once the draft checks out, share the draft with whoever signs off. `respira_crea
 
 ## Tooling
 
-**Figma read** (agent-side): a connected Figma MCP, or the Figma REST API with a personal access token.
+**Figma read:** the Figma connector's tools when the connector is present in the conversation, otherwise a frame export and values the person shares.
 
 **Respira tools**
 - `respira_get_site_context`

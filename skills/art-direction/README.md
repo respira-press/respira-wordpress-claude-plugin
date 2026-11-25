@@ -25,7 +25,7 @@ The direction's own donts outrank all of these. If purple IS the brand, that is 
 
 ## Import lanes
 
-Bring output from Claude Design, /design-sync, Figma (via its MCP server's `get_variable_defs`), or any design-system document. Tokens convert to DTCG and go through `respira_import_design_tokens` (dry run first, readiness delta shown). Prose (voice, imagery guidance, donts) lands in the direction's guidance, added on top of what is already there. Nothing guessed ships without `inferred: true`. The dashboard runs the Figma and Claude Design lanes without an agent too: respira.press/dashboard/art-direction, "Or connect Figma" and the auto-detecting Import tokens box.
+Bring output from Claude Design, /design-sync, Figma (through the Figma connector's tools when it is present, or a shared frame export), or any design-system document. Tokens convert to DTCG and go through `respira_import_design_tokens` (dry run first, readiness delta shown). Prose (voice, imagery guidance, donts) lands in the direction's guidance, added on top of what is already there. Nothing guessed ships without `inferred: true`. The dashboard's auto-detecting Import tokens box takes a Claude Design document too: respira.press/dashboard/art-direction.
 
 ## Triggers
 

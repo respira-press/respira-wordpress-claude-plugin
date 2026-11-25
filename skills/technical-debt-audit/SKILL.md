@@ -88,7 +88,7 @@ Respira is installed but cannot reach your WordPress site.
 1. Verify your WordPress site is online
 2. Check the Respira plugin is active (not just installed)
 3. Check that the Respira tools are still available in this conversation
-4. Review API key in Respira → Settings → API Keys
+4. Check the Respira settings on the site
 
 **Help:** https://www.respira.press/docs
 ```

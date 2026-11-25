@@ -152,7 +152,7 @@ If user declines, stop after delivering recommendations.
 
 #### Yoast's llms.txt file
 
-If Yoast's llms.txt feature is on, fetch the site's `/llms.txt` and read what it lists before promising the owner anything about it. What Yoast builds (checked against Yoast SEO 28.8, so confirm the version first):
+If Yoast's llms.txt feature is on, open the site's `/llms.txt` and read what it lists before promising the owner anything about it. What Yoast builds (checked against Yoast SEO 28.8, so confirm the version first):
 
 - **Pages** follow Yoast's llms.txt setting. In manual mode the file lists the About, Contact, Terms, Privacy and Shop pages plus the extra pages the owner picked.
 - **Posts and every other post type ignore that setting.** They always use the automatic list, five links per type: cornerstone content first (only when Yoast's cornerstone feature is on), then the most recently modified. For posts, the recent slots only take posts published in the last 12 months. To get an article into the file, mark it cornerstone; the code has no separate hand-picked list for posts.

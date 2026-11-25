@@ -249,7 +249,7 @@ From `respira_list_plugins`, identify payment gateway plugins:
 For each detected gateway:
 - Is the plugin active?
 - Is SSL present (required for most gateways)?
-- Note: Cannot verify API key validity via MCP — flag as "requires manual verification"
+- Note: Cannot verify payment gateway credentials with the Respira tools — flag as "requires manual verification"
 
 ---
 
@@ -422,7 +422,7 @@ and my-account to the exclusion list"
 |---------|--------------|---------|-------|
 | [Gateway] | ✅ Active / ❌ Inactive | ✅/❌ | [manual verification needed] |
 
-**Note:** API key validity and test mode status cannot be confirmed via read-only analysis. Verify credentials directly in WooCommerce → Payments → Settings.
+**Note:** Payment credential validity and test mode status cannot be confirmed via read-only analysis. Verify credentials directly in WooCommerce → Payments → Settings.
 
 ---
 

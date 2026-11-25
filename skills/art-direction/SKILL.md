@@ -128,21 +128,21 @@ Related fails the check never waives: `generic-names` (Acme, John Doe, lorem ips
 
 ## Figma Import Lane
 
-When the agent has Figma MCP access (the `figma` server, not the dashboard's browser-side token paste — that lane lives at respira.press/dashboard/art-direction, "Or connect Figma"), pull from the design file directly instead of asking the user to export anything:
+When the Figma connector from the Claude directory is already present in the conversation, pull from the design file directly instead of asking the user to export anything. When it is not, ask the person to share the frame as an export (an image) plus the values that matter (colours, type sizes, spacing), and build the DTCG payload from those. Never ask for a token:
 
-1. **Read the file's variables.** Call the Figma MCP tool `get_variable_defs` (or `get_design_context` when variables are not published) against the selection or file the user points at. This returns names and resolved values — colors, and often type/spacing scales — with no token or OAuth secret ever touching this skill.
-2. **Convert to DTCG, guessing roles the same way everywhere.** A variable's own name decides its slot: `bg`/`background` → `tokens.color.roles.bg`, `ink`/`text`/`foreground` → `ink`, `accent`/`primary` → `accent`, `border` → `border`; anything else becomes a `tokens.color.brand.<slug>` entry. This is the exact rule `Respira_Design_Direction::IMPORT_COLOR_ROLE_MAP` uses on the write side and the dashboard's Figma tab uses on the preview side (`design-import/color-roles.ts` in the product website), so a file imported here and one imported by the user on the dashboard land the same way. If you have to GUESS a role because no variable states it (e.g. picking the lightest color as `bg`), do not silently decide — say so to the user and mark that value `inferred: true` before saving.
+1. **Read the file's variables.** Call the Figma connector's tool `get_variable_defs` (or `get_design_context` when variables are not published) against the selection or file the user points at. This returns names and resolved values — colors, and often type/spacing scales — with no token or OAuth secret ever touching this skill.
+2. **Convert to DTCG, guessing roles the same way everywhere.** A variable's own name decides its slot: `bg`/`background` → `tokens.color.roles.bg`, `ink`/`text`/`foreground` → `ink`, `accent`/`primary` → `accent`, `border` → `border`; anything else becomes a `tokens.color.brand.<slug>` entry. This is the exact rule `Respira_Design_Direction::IMPORT_COLOR_ROLE_MAP` uses on the write side and the dashboard's token importer uses on the preview side (`design-import/color-roles.ts` in the product website), so a file imported here and one imported by the user on the dashboard land the same way. If you have to GUESS a role because no variable states it (e.g. picking the lightest color as `bg`), do not silently decide — say so to the user and mark that value `inferred: true` before saving.
 3. **Import as a dry run.** Call `respira_import_design_tokens` with the DTCG payload and `dry_run: true` (the default). Show the response's `readiness` delta and any `skipped` entries to the user. Re-call with `dry_run: false` only after they see it, to save the draft. `claude-design`-style provenance does not apply here; the plugin records `figma-dtcg` in `sources` automatically.
 4. **Typography and spacing follow the same import**, not a separate call: `typography.families.{heading,body,mono}` and `typography.scale.*`, `spacing.scale.*`, same DTCG payload.
 
-## OpenDesign Import Lane
+## Exported Tokens Folder Import Lane
 
-OpenDesign (open-design.ai) keeps each design system as a folder, `design-systems/<name>/`, holding `tokens.css` and `DESIGN.md`; its pages are single-file HTML. When the user brings one (or the agent can read the folder through OpenDesign's MCP server):
+A design system can come as an exported tokens folder, `design-systems/<name>/`, holding `tokens.css` and `DESIGN.md`; its pages are single-file HTML. When the person shares one:
 
 1. **tokens.css carries the values.** Map its variables to DTCG by role, not by guess: `--bg` → `color.bg`, `--fg` → `color.ink`, `--accent` → `color.accent`, `--border` → `color.border`, and inside an explicit role group `--surface` → `color.roles.surface`, `--muted` (muted text) → `color.roles.muted`, `--accent-on` → `color.roles.accent-ink`. Every other color (`--surface-warm`, `--fg-2`, `--meta`, `--border-soft`) is a `color.<slug>` brand entry. `--font-display` → `typography.families.heading`, `--font-body` → `body`, `--font-mono` → `mono`; `--text-*` → `typography.scale.*`, `--space-*` → `spacing.*`, `--radius-*` → `radius.*`. Read only the light theme: values inside `.dark`, `[data-theme="dark"]` or `prefers-color-scheme: dark` are not the direction. Then import as a dry run like any other lane.
 2. **DESIGN.md carries the prose.** Its "Do's and Don'ts" subsections go to `guidance.dos` / `guidance.donts` (additive, as in the Claude Design lane); the first sentence of "Visual Theme & Atmosphere" can be the statement when the direction has none. Measurements in Layout or Typography "principles" are not guidance.
-3. **Pages go through Respira Exhale**, the HTML to native page converter: an OpenDesign page converts to a native page in the site's builder, and the direction keeps later edits on palette.
-4. The user can do all of this without an agent: the dashboard's Art Direction page has an OpenDesign tab that takes `tokens.css`, `DESIGN.md` and exported pages, and the tokens tab also reads shadcn/ui variables and Tailwind v4 `@theme` blocks.
+3. **Pages go through Respira Exhale**, the HTML to native page converter: an exported page converts to a native page in the site's builder, and the direction keeps later edits on palette.
+4. The user can do all of this without an agent: the dashboard's Art Direction page takes `tokens.css`, `DESIGN.md` and exported pages, and its tokens tab also reads shadcn/ui variables and Tailwind v4 `@theme` blocks.
 
 ## Claude Design Import Lane
 
@@ -203,7 +203,7 @@ A waiver is the owner's standing decision that the brand legitimately breaks a r
 
 The dashboard page at **respira.press/dashboard/art-direction** shows the saved direction, its readiness with inferred flags, the per-builder apply reports, and the live page preview minted in step 6. That page is the receipts; point the user there when work lands.
 
-The same page also runs the Figma and Claude Design import lanes without an agent: an "Or connect Figma" panel next to the token importer takes a file URL and a personal access token (used once, never stored), and pasting a Claude Design document into the token box is detected automatically, previewing tokens and guidance separately before either is saved. Point a user there directly when they would rather do the import themselves than hand you a token.
+The same page also takes a Claude Design document pasted into the token box; it is detected automatically, previewing tokens and guidance separately before either is saved.
 
 ---
 
@@ -239,7 +239,7 @@ The same page also runs the Figma and Claude Design import lanes without an agen
 - `respira_create_review_link` / `respira_create_share_link`: a link the person who signs off opens with no login (Murmur notes on the Builder plan and up)
 - `respira_list_review_comments` / `respira_resolve_review_comment`: read their notes, then close each with the snapshot id
 
-**Reading Figma (when its MCP server is connected)**
-- `get_variable_defs` / `get_design_context`: NOT a respira tool, a different MCP server's — read a Figma file's variables or design context before converting to DTCG per the Figma Import Lane above
+**Reading Figma (when the Figma connector is present)**
+- `get_variable_defs` / `get_design_context`: NOT a respira tool, the Figma connector's tools — read a Figma file's variables or design context before converting to DTCG per the Figma Import Lane above
 
 ---

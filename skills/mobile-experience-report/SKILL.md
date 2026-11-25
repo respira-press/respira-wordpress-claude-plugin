@@ -88,7 +88,7 @@ Respira is installed but cannot reach your WordPress site.
 1. Verify your WordPress site is online
 2. Check the Respira plugin is active (not just installed)
 3. Check that the Respira tools are still available in this conversation
-4. Review API key in Respira → Settings → API Keys
+4. Check the Respira settings on the site
 
 **Help:** https://www.respira.press/docs
 ```
@@ -157,7 +157,7 @@ Params: { url: <page url>, strategy: "mobile" }
 Returns: LCP, INP, CLS for the mobile profile (field data when available, lab otherwise)
 ```
 
-Record the mobile LCP / INP / CLS per page and feed them into the Performance band of the score (Step 6). Real Core Web Vitals override the heuristic performance estimate when present. If the PageSpeed audit is unavailable (no API key, rate limited, or the site is unreachable to Google), fall back to the structural analysis below and note in the report that metrics are heuristic, not measured.
+Record the mobile LCP / INP / CLS per page and feed them into the Performance band of the score (Step 6). Real Core Web Vitals override the heuristic performance estimate when present. If the PageSpeed audit is unavailable (rate limited, or the site is unreachable to Google), fall back to the structural analysis below and note in the report that metrics are heuristic, not measured.
 
 ### Step 5: Page Structure Analysis
 
@@ -496,7 +496,7 @@ When the user approves a fix, apply it precisely rather than rewriting pages:
 
 **Honest note:**
 
-This skill combines real mobile metrics (Core Web Vitals and a mobile Lighthouse pass via `respira_run_pagespeed_audit` / `respira_get_core_web_vitals`) with structural analysis of your page builder configuration. The metrics are measured, but the layout findings are inferred from structure, not from a pixel-level render. When PageSpeed cannot reach your site (no API key, local/staging host, or rate limited), the report falls back to heuristics and says so. Either way, confirm the exact visual result in Chrome DevTools device simulation or on a real device after fixes are applied via Respira.
+This skill combines real mobile metrics (Core Web Vitals and a mobile Lighthouse pass via `respira_run_pagespeed_audit` / `respira_get_core_web_vitals`) with structural analysis of your page builder configuration. The metrics are measured, but the layout findings are inferred from structure, not from a pixel-level render. When PageSpeed cannot reach your site (local or staging host, or rate limited), the report falls back to heuristics and says so. Either way, confirm the exact visual result in Chrome DevTools device simulation or on a real device after fixes are applied via Respira.
 
 ---
 

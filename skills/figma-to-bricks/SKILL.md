@@ -44,7 +44,7 @@ Figma stores a tree of nodes with auto-layout; Bricks stores a flat element list
 
 - Respira for WordPress plugin installed and connected; Bricks Builder active
 - The Respira tools available in the conversation
-- **Figma read access from your agent** — a connected Figma MCP, or a Figma file/frame URL plus a personal access token
+- **Figma design:** the Figma connector from the Claude directory, when it is already present in the conversation. If it is not, share the design as a frame export (an image) plus the values that matter: colours, type sizes and spacing.
 - Write access to create a draft with the new Bricks content
 
 ## Trigger Phrase
@@ -59,7 +59,7 @@ Figma stores a tree of nodes with auto-layout; Bricks stores a flat element list
 
 ## Source: Figma
 
-Same read model as every figma-to-* skill: read the selected frame's node tree via the agent's Figma access (Figma MCP, or REST `GET /v1/files/:key/nodes?ids=:id` plus `GET /v1/files/:key/images` for image fills). Key properties: node `type`, `layoutMode`/`itemSpacing`/`padding*`/axis alignment, text `style`, `fills`/`strokes`/`cornerRadius`/`effects`/`opacity`, `characters`, IMAGE fills.
+Same read model as every figma-to-* skill: read the selected frame's node tree through the Figma connector's tools when that connector is present in the conversation. When it is not, ask the person to share the design as a frame export (an image) plus the values that matter (colours, type sizes, spacing) and work from those. Never ask for a token and never call Figma yourself. Key properties: node `type`, `layoutMode`/`itemSpacing`/`padding*`/axis alignment, text `style`, `fills`/`strokes`/`cornerRadius`/`effects`/`opacity`, `characters`, IMAGE fills.
 
 ## Target: Bricks
 
