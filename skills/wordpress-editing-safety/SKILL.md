@@ -10,6 +10,8 @@ metadata:
   category: editing
 ---
 
+> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+
 # WordPress Editing Safety
 
 These rules are the difference between a tool the user trusts and a tool that breaks their site. They are the same rules Respira sends every agent as its core rules, on every channel; this skill explains how to apply them.

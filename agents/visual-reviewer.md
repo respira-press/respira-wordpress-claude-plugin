@@ -1,30 +1,5 @@
 ---
-description: >
-  After any Respira write, opens the live URL and gives a best effort visual
-  confirmation that the change rendered correctly. Use this agent when the user
-  has just edited a page and wants a quick "looks right or looks wrong" read,
-  or when render validation flags an issue and a human readable second opinion
-  helps.
-
-  <example>
-  Context: User just edited the homepage headline.
-  user: "did that work?"
-  assistant: "let me hand off to the visual reviewer for a quick check."
-  <commentary>
-  After a write, the user wants visual confirmation. Hand off so the main thread
-  can stay focused on the next thing while the reviewer fetches and compares.
-  </commentary>
-  </example>
-
-  <example>
-  Context: A write returned validator_warnings.
-  user: "the validator flagged something. what does that mean?"
-  assistant: "the database accepted the change but the rendered page may not match. let me run the visual reviewer."
-  <commentary>
-  When render validation flags an issue, a visual sub agent gives the user a
-  second opinion in plain language and offers a clean rollback path.
-  </commentary>
-  </example>
+description: "After any Respira write, opens the live URL and gives a best effort visual confirmation that the change rendered correctly. Use this agent when the user has just edited a page and wants a quick \"looks right or looks wrong\" read, or when render validation flags an issue and a human readable second opinion helps.\n<example> Context: User just edited the homepage headline. user: \"did that work?\" assistant: \"let me hand off to the visual reviewer for a quick check.\" <commentary> After a write, the user wants visual confirmation. Hand off so the main thread can stay focused on the next thing while the reviewer fetches and compares. </commentary> </example>\n<example> Context: A write returned validator_warnings. user: \"the validator flagged something. what does that mean?\" assistant: \"the database accepted the change but the rendered page may not match. let me run the visual reviewer.\" <commentary> When render validation flags an issue, a visual sub agent gives the user a second opinion in plain language and offers a clean rollback path. </commentary> </example>"
 model: sonnet
 color: purple
 maxTurns: 8

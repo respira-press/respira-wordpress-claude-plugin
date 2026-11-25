@@ -10,6 +10,8 @@ metadata:
   category: workflow
 ---
 
+> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+
 # Respira Workflow
 
 Respira gives an AI agent safe, structured access to a live WordPress site, in the site's own page builder format. This skill sets how you work with it. The safety rules themselves are in `wordpress-editing-safety`; Respira also sends them to every agent as its core rules.

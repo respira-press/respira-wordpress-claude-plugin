@@ -1,6 +1,6 @@
 ---
 name: respira-woocommerce
-description: Use for WooCommerce operations on a WordPress site. Listing, reading, creating, updating, and duplicating products. Managing categories and tags. Reading orders and updating order status. Stock management. Sales reports. Storefront layout edits. Builder-aware throughout. Requires the Respira WooCommerce add-on (paid).
+description: "Use for WooCommerce operations on a WordPress site. Listing, reading, creating, updating, and duplicating products. Managing categories and tags. Reading orders and updating order status. Stock management. Sales reports. Storefront layout edits. Builder-aware throughout. Requires the Respira WooCommerce add-on (paid)."
 license: MIT
 metadata:
   short-description: Builder-aware WooCommerce product, category, order, stock, and storefront management
@@ -9,6 +9,8 @@ metadata:
   respira_min_version: 7.1.0
   requires_addon: respira-woocommerce-addon
 ---
+
+> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # Respira WooCommerce
 

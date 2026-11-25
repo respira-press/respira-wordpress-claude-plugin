@@ -10,6 +10,8 @@ metadata:
   category: commerce
 ---
 
+> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+
 # Woo Pricing and Promotions
 
 Runs a sale, a repricing, or a coupon on a live WooCommerce store, and treats the money as money. Every change is previewed before it happens. Product prices are snapshotted before they change and can be reverted; a new coupon is not a snapshotted edit, so the person is told that.

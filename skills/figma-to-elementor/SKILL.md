@@ -10,6 +10,8 @@ metadata:
   category: migration
 ---
 
+> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+
 # Figma to Elementor
 
 Rebuilds a Figma frame as a real, editable Elementor page on your WordPress site. Reads the Figma node tree (layers, auto-layout, text, colors, images), maps each node to its closest Elementor widget or container, generates a build plan for approval, and writes clean Elementor JSON to a draft duplicate so nothing live is touched. Use this skill whenever someone wants to turn a Figma design into an Elementor page, build a Figma mockup in Elementor, or hand a design off to WordPress without rebuilding it by hand.

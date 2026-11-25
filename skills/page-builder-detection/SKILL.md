@@ -1,10 +1,12 @@
 ---
 name: page-builder-detection
-description: Recognises which WordPress page builder is in use and picks the right approach for that builder. Use whenever the user mentions Elementor, Divi, Bricks, Oxygen, Breakdance, Beaver Builder, WPBakery, Flatsome, YOOtheme, Avada, Brizy, Thrive, Gutenberg, or page builder. Calls respira_get_builder_info before any edit so the right write path is chosen.
+description: "Recognises which WordPress page builder is in use and picks the right approach for that builder. Use whenever the user mentions Elementor, Divi, Bricks, Oxygen, Breakdance, Beaver Builder, WPBakery, Flatsome, YOOtheme, Avada, Brizy, Thrive, Gutenberg, or page builder. Calls respira_get_builder_info before any edit so the right write path is chosen."
 license: MIT
 metadata:
   version: 1.1.0
 ---
+
+> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # Page Builder Detection
 

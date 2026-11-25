@@ -1,7 +1,9 @@
 ---
-description: Restore the most recent page, post or layout edit on a connected WordPress site from its snapshot. Fast, friendly, and reassuring.
+description: "Restore the most recent page, post or layout edit on a connected WordPress site from its snapshot. Fast, friendly, and reassuring."
 argument-hint: "[optional: site]"
 ---
+
+> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 You are helping a non technical user restore the most recent page, post or layout edit made through Respira from its snapshot. Make it fast and reassuring. This covers content edits only: plugin installs and removals, WordPress core updates, user accounts and deleted menus and terms have no snapshot, and your host's backup is the way back for those.
 

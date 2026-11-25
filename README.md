@@ -6,8 +6,8 @@
 
 Respira lets Claude edit a WordPress site the way a careful person would: in the site's own page builder, one element at a time, with a snapshot taken before every page and post write. Ask for a new headline, a testimonials section, an SEO pass or a move from Elementor to Bricks, and Claude does it through Respira's tools instead of pasting raw HTML into your pages.
 
-> **Already use the Respira plugin for Cowork** (added from `respira-press/cowork-plugin-wordpress`, with its `connect-site` command and a setup code)? You do not need this one. That plugin keeps working as it is. This plugin is the version for Claude's plugin directory: it connects straight to your own site and starts nothing on your computer.
-This plugin gives Claude the Respira skills, slash commands and a visual reviewer agent. In Claude Code it also connects Claude to your WordPress site, using the site address and the site key you enter once. It works with Gutenberg, Elementor, Divi 4 and Divi 5, Bricks, Oxygen Classic and Oxygen 6, Beaver Builder, Breakdance, Flatsome, Brizy, Visual Composer, WPBakery, Spectra, Kadence Blocks and GenerateBlocks, and it can audit SeedProd pages.
+> **Already use the Respira plugin for Cowork** (added from `respira-press/cowork-plugin-wordpress`, with its `connect-site` command and a setup code)? You do not need this one. That plugin keeps working as it is. This plugin is the version for Claude's plugin directory: it brings skills and commands only, and starts nothing on your computer.
+This plugin gives Claude the Respira skills, slash commands and a visual reviewer agent. It does not connect Claude to your WordPress site by itself: you add your own site to Claude once, outside the plugin (see "Connect your site" below), because every Respira site lives at its own address. It works with Gutenberg, Elementor, Divi 4 and Divi 5, Bricks, Oxygen Classic and Oxygen 6, Beaver Builder, Breakdance, Flatsome, Brizy, Visual Composer, WPBakery, Spectra, Kadence Blocks and GenerateBlocks, and it can audit SeedProd pages.
 
 ## What you can ask for
 
@@ -29,13 +29,21 @@ This plugin gives Claude the Respira skills, slash commands and a visual reviewe
 
 - A WordPress site where you can install plugins, with the **Respira for WordPress** plugin installed and activated.
 - A Respira account at [respira.press](https://www.respira.press).
-- A site key from your WordPress admin (**Respira, Settings, API Keys**), or, in Cowork and the Claude apps, a Respira sign-in.
+- Your site added to Claude once, as described below. You sign in to Respira in the browser; there is no key to paste into this plugin.
 
-## Connect a site
+## Connect your site
 
-**Claude Code.** Install this plugin. Claude Code asks for your WordPress site address and a Respira site key, and connects straight to your own site at `<your site>/wp-json/respira/v1/mcp`. Nothing runs on your computer: the plugin starts no program and downloads no package. The key is saved in your system's credential store and sent only to your own site. For the short Focus list of tools, change the third setting to `wp-json/respira/v1/mcp/focus`. Run `/respira-wordpress:connect-site` for a guided walkthrough, including a second site.
+The plugin brings the skills and commands. The connection to your site is added once by you, outside the plugin, because Respira has no single public address: each site's Respira server is at `https://<your-site>/wp-json/respira/v1/mcp`. Run `/respira-wordpress:connect-site` in Claude for a guided walkthrough. Until a site is connected, the skills and commands tell you so and stop; they do not guess.
 
-**Cowork, claude.ai in the browser and the Claude apps.** These do not ask a plugin for settings, so the plugin brings the skills and commands, and you add your site once as a connector: in Claude, open **Settings, Connectors, Add custom connector**, paste the site link from your [Respira dashboard](https://www.respira.press/dashboard/mcp), sign in to Respira, then **Approve**. The skills and commands in this plugin then work with that connection. `/respira-wordpress:connect-site` walks through it.
+**Claude Code.** In a terminal, with your own site address:
+
+```
+claude mcp add --transport http respira-mysite https://example.com/wp-json/respira/v1/mcp
+```
+
+(The form is `claude mcp add --transport http <name> <url>`, from [Claude Code's MCP documentation](https://code.claude.com/docs/en/mcp).) Then run `/mcp` in Claude Code and choose the server to sign in to Respira in your browser. Your dashboard at [respira.press/dashboard/mcp](https://www.respira.press/dashboard/mcp) can also show a ready-made command for your site. For the short Focus list of tools, use `https://example.com/wp-json/respira/v1/mcp/focus` as the address.
+
+**Cowork, claude.ai in the browser and the Claude apps.** Open your [Respira dashboard](https://www.respira.press/dashboard/mcp), choose **claude.ai** (or **Claude Desktop**) and copy the site link it shows. In Claude open **Customize, Connectors**, choose **+ Add**, then **Add custom connector**, enter a name, paste the link, choose **Continue**, sign in to Respira and press **Approve**. The steps are described at [respira.press/docs](https://www.respira.press/docs). Each site is its own connector.
 
 ## The commands
 
@@ -62,8 +70,8 @@ The skills load on their own when a conversation needs them. They cover safe edi
 
 Everything this plugin runs, sends or fetches:
 
-- **Your WordPress site, from Claude Code.** `.mcp.json` points Claude Code at your own site's Respira address, built from the site address and path you enter. Claude Code sends your Respira site key in an `X-Respira-API-Key` header with each request. The plugin starts no local program and reads no key from your computer.
-- **Your WordPress sites.** Each tool call goes to the WordPress site you are working on, over HTTPS, authenticated with that site's key. Page content travels between your site and Claude.
+- **Your WordPress site, once you add it.** The plugin itself declares no server and holds no address. When you add your own site to Claude, as described above, Claude talks to that site over HTTPS and you sign in to Respira in the browser. The plugin starts no local program and reads no key from your computer.
+- **Your WordPress sites.** Each tool call goes to the WordPress site you are working on, over HTTPS, through the connection you added. Page content travels between your site and Claude.
 - **respira.press, for your site.** Your site's Respira plugin talks to respira.press for your account, for the rendered design check (it asks the render service to load a published page and take screenshots), for `respira_search_docs` (your search words go to `https://www.respira.press/docs-search`) and for `respira_report_issue` (the report you approve goes to `https://www.respira.press/mcp/report-issue`). Cowork, claude.ai and the apps sign in through `https://www.respira.press`.
 - **respira.press, usage records.** Respira's usage records for tool calls are written by the Respira plugin on your WordPress site and by the skills below, not by anything on your computer. A skill that opens sends the skill name, the site address and the client name to `https://www.respira.press/api/skills/track-usage`. These feed the usage views in your Respira dashboard and never contain tool arguments or results, page content, prompts or the conversation. To switch off the site-side records, turn on **Opt out of usage reporting** under Respira, Settings in WordPress admin. The usage record's address is `https://www.respira.press/mcp-spend/track` and carries the tool name, the site address, how long the call took and whether it worked. Skill run summaries are separate: each skill asks you once and sends one only after a yes.
 - **Skill run summaries.** Several skills end by asking Claude to send a short run summary to `POST https://www.respira.press/api/skills/track-usage`: the skill name, the site address, the WordPress and PHP versions, timings, whether it succeeded, which Respira tools it used, the AI client's name, and counts such as issues found by severity. No page content and no keys are included. Each skill asks you first and sends the summary only after a yes.

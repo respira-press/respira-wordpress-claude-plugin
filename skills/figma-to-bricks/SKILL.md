@@ -10,6 +10,8 @@ metadata:
   category: migration
 ---
 
+> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+
 # Figma to Bricks
 
 Rebuilds a Figma frame as a real, editable Bricks page. Reads the Figma node tree (layers, auto-layout, text, colors, images), maps each node to its closest Bricks element, scaffolds BEM global classes so styling stays reusable instead of inline, imports the frame's palette into the Bricks color system, and writes to a draft so nothing live is touched.

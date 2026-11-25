@@ -1,7 +1,9 @@
 ---
-description: Add a new section to an existing WordPress page. Hero, features, testimonials, FAQ, CTA, and more, in any of the 12 supported page builders.
+description: "Add a new section to an existing WordPress page. Hero, features, testimonials, FAQ, CTA, and more, in any of the 12 supported page builders."
 argument-hint: "[optional: site, page, section type, content]"
 ---
+
+> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 You are helping a non technical user add a new section to a page on one of their connected WordPress sites. The user wants a complete section (a hero, a row of features, testimonials, etc.), not a single element edit.
 

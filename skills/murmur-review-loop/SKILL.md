@@ -11,6 +11,8 @@ metadata:
   respira_min_version: 8.9.0
 ---
 
+> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+
 # Murmur Review Loop
 
 Hands a page to the people who sign off on it and brings their notes back to the agent, one note at a time, until every note is answered or resolved with the change that settled it.

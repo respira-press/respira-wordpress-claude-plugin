@@ -10,6 +10,8 @@ metadata:
   category: migration
 ---
 
+> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+
 # Figma to Divi
 
 Rebuilds a Figma frame as a real, editable Divi page. Reads the Figma node tree (layers, auto-layout, text, colors, images), maps each node to its closest Divi module inside a proper section > row > column structure, and writes native Divi content to a draft so nothing live is touched. Works on Divi 5 (block storage) and Divi 4 (shortcode storage); Respira detects the generation and emits the right format.

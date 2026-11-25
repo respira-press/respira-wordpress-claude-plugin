@@ -10,6 +10,8 @@ metadata:
   category: migration
 ---
 
+> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+
 # Figma to Gutenberg
 
 Rebuilds a Figma frame as a real, editable block-editor page — no page builder required. Reads the Figma node tree (layers, auto-layout, text, colors, images), maps each node to core Gutenberg blocks, registers the frame's palette in the site's Global Styles so the design system carries over, and writes to a draft so nothing live is touched. Works on any WordPress 6.6+ site, including block themes.

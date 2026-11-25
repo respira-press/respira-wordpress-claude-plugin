@@ -1,6 +1,6 @@
 ---
 name: respira-builder-edits
-description: Use for any in-page content edit on a WordPress site with a page builder. Covers finding elements, applying surgical edits, duplicating before large changes, and verifying the result. Works across Elementor 3 + 4, Divi 4 + 5, Beaver Builder, Bricks, Oxygen Classic, Oxygen 6, Breakdance, WPBakery, Uncode, and Gutenberg.
+description: "Use for any in-page content edit on a WordPress site with a page builder. Covers finding elements, applying surgical edits, duplicating before large changes, and verifying the result. Works across Elementor 3 + 4, Divi 4 + 5, Beaver Builder, Bricks, Oxygen Classic, Oxygen 6, Breakdance, WPBakery, Uncode, and Gutenberg."
 license: MIT
 metadata:
   short-description: Safe, builder-native in-page editing across all supported builders
@@ -8,6 +8,8 @@ metadata:
   updated_at: 2026-05-17
   respira_min_version: 7.1.0
 ---
+
+> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # Respira Builder Edits
 
@@ -44,7 +46,7 @@ metadata:
 ## Builder-specific notes
 
 - **Elementor 3.** Content lives in `_elementor_data`. Each widget has `id`, `widgetType`, and `settings`. The base path is mature.
-- **Elementor 4 (Atomic Elements).** v7.1 added end-to-end write support across 9 atomic widgets (`e-heading`, `e-paragraph`, `e-button`, `e-image`, `e-svg`, `e-divider`, `e-youtube`, `e-self-hosted-video`, `e-component`) plus 11 atomic layout containers (`e-flexbox`, `e-div-block`, `e-grid`, the `e-tabs` family, the `e-form` family). Pre-v7.1 every atomic write returned 422 `respira_elementor_atomic_write_unsupported`. The v4 normaliser lifts shorthand to the canonical `$$type` envelopes; the v4 validator catches malformed nodes before they hit the DB. Unsupported atomic types still refuse fast with `supported_widgets` in the error body.
+- **Elementor 4 (Atomic Elements).** v7.1 added end-to-end write support across 9 atomic widgets (`e-heading`, `e-paragraph`, `e-button`, `e-image`, `e-svg`, `e-divider`, `e-youtube`, `e-self-hosted-video`, `e-component`) plus 11 atomic layout containers (`e-flexbox`, `e-div-block`, `e-grid`, the `e-tabs` family, the `e-form` family). Pre-v7.1 every atomic write returned 422 `respira_elementor_atomic_write_unsupported`. The v4 normaliser lifts shorthand to the canonical the `type` marker with two leading dollar signs envelopes; the v4 validator catches malformed nodes before they hit the DB. Unsupported atomic types still refuse fast with `supported_widgets` in the error body.
 - **Divi 4.** Shortcodes in `post_content`. v7.0.19 + v7.0.29 fixed update_element, batch_update, apply_builder_patch, remove_element, inject_builder_content, and update_module. The kses bypass survives so `<script>` and `<style>` inside `et_pb_code` are preserved. Custom post types are supported.
 - **Divi 5.** Blocks plus `attrs._nodeId`. v7.0.16 fixed the background overlay key (`overlay.enable` is what the renderer reads). v7.0.28 fixed the number-counter typed envelope and the button text colour dual-write. v7.0.30 added the `_nodeId` fallback for id matching. v7.0.32 added the children-aliases fold (`rows`, `cols`, `modules`) plus a hard-error on silent child drops.
 - **Beaver Builder.** v7.0.13 added Box module mappings. v7.0.16 fixed typed-node normalisation (`{type:'row', columns:[…]}`). v7.0.17 defaults missing column `size` to "100" so columns render full-width when the agent omits it. v7.0.25 fixed the top-level font-field stdClass fatal. v7.0.26 expanded that to typography containers. Custom HTML in modules survives the kses bypass.

@@ -10,6 +10,8 @@ metadata:
   category: commerce
 ---
 
+> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+
 # Woo Marketing Campaigns
 
 Plans and drafts a campaign for a WooCommerce store from what the store actually sells, rather than from what a model imagines a store like this sells.
@@ -56,7 +58,7 @@ So this reads sales, stock and catalogue quality before it writes a word, then d
 
 ### Phase 1: Read the shop
 
-1. `woocommerce_top_products` and `woocommerce_revenue_summary` over the last 30 and 90 days (pass `date_start` and `date_end`), then `woocommerce_sales_timeseries` with `interval: week`. What sells, what is seasonal, what has stalled.
+1. `woocommerce_top_products` and `woocommerce_revenue_summary` over the last 30 and 90 days (set the `date_start` and `date_end` arguments), then `woocommerce_sales_timeseries` with `interval: week`. What sells, what is seasonal, what has stalled.
 2. `woocommerce_list_products_advanced` for stock and price on the candidates. A hero product that goes out of stock on day two is a campaign that ends on day two.
 3. `woocommerce_find_low_stock` to rule those out early.
 4. `woocommerce_catalog_health` for the store, then `woocommerce_product_ai_readiness` on each shortlisted product. A product with no image and a twelve-word description will not convert however good the campaign is, and fixing that comes first.

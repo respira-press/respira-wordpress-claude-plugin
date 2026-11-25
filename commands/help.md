@@ -1,5 +1,5 @@
 ---
-description: Show the available Respira commands and how to use them.
+description: "Show the available Respira commands and how to use them."
 ---
 
 You are showing the user a friendly menu of what Respira can do for them in Claude. Keep it short, plain language, and warm. End with a real path to support.

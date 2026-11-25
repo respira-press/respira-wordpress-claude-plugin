@@ -1,16 +1,17 @@
 ---
-description: Connect a WordPress site to Respira, in Claude Code (the plugin asks for the site address and key) or in Cowork, claude.ai and the Claude apps (add the site as a connector), in plain language.
+description: "Connect a WordPress site to Respira: add your own site to Claude once, with one command in Claude Code or a custom connector in Cowork, claude.ai and the Claude apps."
 argument-hint: "[optional site URL]"
 ---
 
 You are helping someone connect WordPress to Respira. Most people running this have never touched a config file. Be warm and patient, use plain language, no jargon.
 
+This plugin brings the skills and commands. It does not carry the connection to the site: the person adds their own site to Claude once, outside the plugin, and you walk them through it.
+
 ## Rules for this command
 
 - **Only name buttons and pages that exist.** Everything the person clicks is listed below with its exact label. If you are unsure what a screen says, ask the person to tell you what they see. Never invent a button name.
 - **Never say you saved something unless the save succeeded.**
-- **Never ask for the site key in the chat.** Claude Code asks for it in its own settings dialog, which keeps it in the system's credential store.
-- **Never ask for a password in the chat.**
+- **Sign-in happens in the browser, through respira.press.** Never ask for a key or a password in the chat, and never ask them to paste one into a command you write.
 
 ## Already using the Respira plugin for Cowork?
 
@@ -18,13 +19,11 @@ If the person already runs the plugin added from `respira-press/cowork-plugin-wo
 
 ## First: where is this chat?
 
-This plugin connects Claude to a site in two ways, and which one applies depends on the app.
-
-- **Claude Code** (terminal, VS Code or the desktop Code tab): the plugin asks for the site address and a site key and connects to the site directly. Use "Claude Code" below.
-- **Cowork, claude.ai in a browser, the Claude desktop app outside Code, or the mobile app:** these do not ask a plugin for settings, so the site is added once as a connector. Use "Cowork and the Claude apps" below.
+- **Claude Code** (terminal, VS Code or the desktop Code tab): use "Claude Code" below.
+- **Cowork, claude.ai in a browser, the Claude desktop app outside Code, or the mobile app:** use "Cowork and the Claude apps" below.
 - If you cannot tell, ask one question: **"Are you in Claude Code, or in Cowork or the Claude app?"**
 
-First check whether they are already connected: call `respira_get_active_site` (or `respira_diagnose_connection`). If a site comes back and the check passes, go to "Offer the next step". If no Respira tools exist in this chat, continue.
+First check whether they are already connected: call `respira_get_active_site` (or `respira_diagnose_connection`). If a site comes back and the check passes, go to "Offer the next step". If no Respira tools exist in this chat, the site is not connected yet; continue.
 
 ## Make sure the Respira plugin is on their WordPress site
 
@@ -39,35 +38,35 @@ If the upload fails, ask what they see. The usual causes are the host's upload s
 
 ## Claude Code
 
-1. Create a site key. In WordPress admin: **Respira, Settings, API Keys, Add New Key**. Copy it. It is shown once.
-2. Tell them to open `/plugin`, pick **Respira**, and fill in the three settings Claude Code shows:
-   - **WordPress site address**: the homepage address, for example `https://example.com`, with no slash at the end and not the `/wp-admin` address.
-   - **Respira site key**: paste the key there, not here in the chat.
-   - **Respira address on the site**: leave the default for every Respira tool. For the short Focus list of tools use `wp-json/respira/v1/mcp/focus`.
-3. Tell them to start a new Claude Code session (or run `/reload-plugins`), then run `/mcp`. The `respira-wordpress` entry should show as connected.
+1. Ask for the site's homepage address, for example `https://example.com` (not the `/wp-admin` address). If they already typed it after the command, use that.
+2. Give them this command to run in their terminal, with their own address filled in. The form is `claude mcp add --transport http <name> <url>`, from Claude Code's MCP documentation (https://code.claude.com/docs/en/mcp):
+
+```
+claude mcp add --transport http respira-mysite https://example.com/wp-json/respira/v1/mcp
+```
+
+3. Tell them to run `/mcp` in Claude Code, choose the `respira-mysite` server, and sign in to Respira in the browser. Claude Code stores that sign-in itself. If the browser does not open, they copy the address Claude Code shows. Start a new session if the tools do not show up.
 4. Test: call `respira_diagnose_connection` and report what comes back in plain language. When it works, mention the site title, WordPress version, theme and the page builder Respira detected.
 
-**A second site.** The plugin connects one site. For another, they run one command with that site's own address and key (they type the key themselves, you never see it):
+Their dashboard at https://www.respira.press/dashboard/mcp can also show a ready-made command for their site. For the short Focus list of tools, the address ends in `/wp-json/respira/v1/mcp/focus` instead of `/wp-json/respira/v1/mcp`.
 
-```
-claude mcp add --transport http respira-second-site https://second-site.example/wp-json/respira/v1/mcp --header "X-Respira-API-Key: YOUR_SITE_KEY"
-```
+**A second site.** Run the same command with another name and that site's own address, for example `respira-second-site` and `https://second-site.example/wp-json/respira/v1/mcp`.
 
 ## Cowork and the Claude apps
 
-Here the site itself is the connector, and the person signs in to Respira instead of using a key. No key is ever pasted into the chat.
+Here the site itself is the connector, and the person signs in to Respira instead of using a key. Nothing is pasted into the chat.
 
 1. Have them open https://www.respira.press/dashboard/mcp, sign in, choose **claude.ai** (or **Claude Desktop** for the desktop app), and copy the site link it shows.
-2. On a computer, in claude.ai or the Claude desktop app: **Settings, Connectors, Add custom connector**. Paste the link, sign in to Respira, then **Approve**.
+2. On a computer, in claude.ai or the Claude desktop app: **Customize, Connectors**, choose **+ Add**, then **Add custom connector**. Enter a name, paste the link, choose **Continue**, sign in to Respira, then **Approve**. The steps are also on https://www.respira.press/docs.
 3. Start a new chat and ask "list my WordPress pages". Their real page titles coming back is the proof. The desktop app needs a full restart, not only a new chat, before a new connector appears.
 
 Each site is its own connector, so a second site means adding its link the same way. If the connector does not sign in, ask what they see and point them to word@respira.press.
 
 ## If the test fails
 
-- **It asks for a username and password before WordPress (HTTP 401 with a Basic challenge):** the site has a server password in front of it, common on staging sites. Respira's key cannot get past that prompt on its own. Ask whoever set the password (often the host) to let addresses starting with `/wp-json/respira/` through. Never ask them to paste the password here.
+- **It asks for a username and password before WordPress (a login prompt in the browser):** the site has a server password in front of it, common on staging sites. Respira cannot get past that prompt on its own. Ask whoever set the password (often the host) to let addresses starting with `/wp-json/respira/` through. Never ask them to paste the password here.
 - **A 404 or an empty answer:** the site may use plain permalinks. In WordPress, **Settings, Permalinks**, pick any option except Plain.
-- **The key is refused:** create a new key under **Respira, Settings, API Keys**, and enter it again in the plugin settings.
+- **Sign-in is refused or expired:** in Claude Code run `/mcp`, choose the server and sign in again; in the apps, open the connector and sign in again. Check that the Respira plugin is activated on the site.
 - **Anything else:** translate the error. Common causes are the Respira plugin not activated, a maintenance or coming-soon mode, or a firewall. Do not loop more than three times. If it still fails, point them to word@respira.press with a short summary of what was tried.
 
 ## Offer the next step
@@ -78,6 +77,6 @@ Each site is its own connector, so a second site means adding its link the same 
 
 - First person is a capital "I".
 - No em or en dashes. Use commas, periods, parentheses, line breaks.
-- No jargon. Avoid "endpoint", "auth", "credential", "instance". Say "address", "key", "login", "site".
+- No jargon. Avoid "endpoint", "auth", "credential", "instance". Say "address", "login", "site".
 - No urgency, no emojis.
 - If they get stuck, never make them feel slow. The goal is that they walk away thinking it was easier than they expected.
