@@ -1,7 +1,7 @@
 {
   "name": "respira-wordpress",
   "displayName": "Respira for WordPress",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "Respira skills and commands for editing WordPress sites with Claude in the site's own page builder: Elementor, Divi, Bricks, Gutenberg and more. The plugin brings the skills, commands and a reviewer agent; you add your own site to Claude once, outside the plugin, and /respira-wordpress:connect-site walks you through it.",
   "author": {
     "name": "Respira",
