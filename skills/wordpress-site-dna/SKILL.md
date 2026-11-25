@@ -6,12 +6,11 @@ metadata:
   author: "Respira for WordPress"
   author_url: "https://respira.press"
   version: "1.3.1"
-  mcp-server: "respira-wordpress"
   category: "audit"
   respira_min_version: "8.9.0"
 ---
 
-> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+> **Before anything else:** this needs the Respira tools. If no Respira tools (names that start with `respira_`) are available in this conversation, say so in one plain sentence: the Respira tools are not available here and this plugin does not add them. Then stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # WordPress Site DNA
 
@@ -20,8 +19,7 @@ metadata:
 **Freshly updated:** v1.3.0 replaces the security step's plugin-name guess with the Respira security audit (`respira_run_security_audit`): indicators, coverage and, on plugin 9.0 and later, known vulnerabilities, reported honestly and never called clean when a check did not run. v1.2.0 added awareness of the full Divi 5 108-module catalog (was 16 hand-curated modules), the Elementor 4 atomic-write surface for site-wide audits, and the 4 new v7.1 builders. Integrates with respira_generate_activity_report (a tool on plugin 9.0 and later; older plugins reach it through respira_invoke_ability with respira/generate-activity-report) for the 'site audit → client report' handoff. Cross-links to the new Activity Report Composer skill.
 **Category:** audit
 **Status:** beta
-**Requires:** Respira for WordPress plugin + MCP server
-**Telemetry endpoint:** https://www.respira.press/api/skills/track-usage
+**Requires:** Respira for WordPress plugin, with the Respira tools available in the conversation
 
 ---
 
@@ -58,7 +56,7 @@ This skill activates when the user says any of the following:
 
 ### Step 1: Respira Verification
 
-Before anything else, verify Respira for WordPress is installed and the MCP server is connected by calling `respira_get_site_context`. If it fails or returns an error, stop and show the installation guide.
+Before anything else, check that the Respira tools are available by calling `respira_get_site_context`. If it fails or returns an error: The Respira tools are not available in this conversation. This plugin does not add them. Stop here and tell the person.
 
 **If Respira is NOT installed, output this and STOP:**
 
@@ -70,7 +68,7 @@ This skill requires the **Respira for WordPress** plugin to analyze your site sa
 ### Install in 3 steps:
 1. Go to **https://www.respira.press** and download the plugin
 2. Install and activate on your WordPress site
-3. Connect via the MCP server: `/respira-wordpress:connect-site`
+3. Use Claude with the Respira tools available in the conversation. This plugin does not add them.
 
 ### Why Respira?
 - Read-only analysis — no changes to your live site
@@ -81,7 +79,7 @@ This skill requires the **Respira for WordPress** plugin to analyze your site sa
 Once installed, come back and try again: *"analyze my wordpress site"*
 ```
 
-**If MCP is connected but site unreachable:**
+**If the Respira tools are available but the site is unreachable:**
 
 ```markdown
 ## ⚠️ Cannot Connect to WordPress Site
@@ -91,10 +89,10 @@ Respira is installed but cannot reach your WordPress site.
 ### Troubleshooting:
 1. Verify your WordPress site is online
 2. Check the Respira plugin is active (not just installed)
-3. Confirm MCP server configuration in Claude settings
+3. Check that the Respira tools are still available in this conversation
 4. Review API key in Respira → Settings → API Keys
 
-**Help:** https://www.respira.press/docs/mcp-setup
+**Help:** https://www.respira.press/docs
 ```
 
 ---
@@ -285,60 +283,6 @@ Security (10 points):
 ### Step 9: Generate Report
 
 Output the complete markdown report using the template below.
-
----
-
-### Step 10: Offer a usage note (only with a yes)
-
-After the report, ask the person once: "Can I send Respira a usage note for this run? It has the skill name, your site address and versions, the counts and score above, and the tools used. No page content." Send it only after a yes. On a no, or no answer, skip it and do not ask again in this conversation. If this client cannot make web requests, skip this step. Never hold the report back for it.
-
-```typescript
-// Telemetry payload
-const payload = {
-  skill_slug: "wordpress-site-dna",
-  session_id: crypto.randomUUID(),
-  user_id: null, // populate if user is authenticated
-  respira_site_url: siteUrl,
-  respira_version: wpVersion,
-  php_version: phpVersion,
-  detected_builders: detectedBuilders, // string[]
-  theme_name: activeTheme,
-  plugin_count: totalPlugins,
-  started_at: startedAt,
-  completed_at: new Date().toISOString(),
-  duration_ms: Date.now() - startTime,
-  success: true,
-  error_message: null,
-  issues_found: criticalCount + highCount + mediumCount,
-  issues_by_severity: {
-    critical: criticalCount,
-    high: highCount,
-    medium: mediumCount,
-    low: lowCount,
-    info: infoCount
-  },
-  health_score: healthScore,
-  mcp_tools_used: toolsUsed, // string[]
-  findings_summary: {
-    builders_detected: buildersDetected,
-    builders_used: buildersUsed,
-    plugins_total: pluginsTotal,
-    plugins_active: pluginsActive,
-    plugins_unused: pluginsUnused,
-    orphaned_shortcodes: orphanedShortcodes,
-    security_issues: securityIssues,
-    performance_score: performanceScore
-  },
-  had_respira_before: true
-};
-
-// Only after a yes. Do not wait on it: a failed note changes nothing for the person.
-fetch("https://www.respira.press/api/skills/track-usage", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(payload)
-}).catch(() => {}); // a failed note is not reported
-```
 
 ---
 
@@ -547,7 +491,7 @@ vulnerabilities one approved update at a time, then check the site again"
 
 ## MCP Tools Reference
 
-All tools below are provided by the `respira-wordpress` MCP server. Never call tools that are not in this list.
+All tools below are Respira tools. Never call tools that are not in this list.
 
 | Tool | Purpose | Required Params |
 |------|---------|-----------------|
@@ -566,7 +510,7 @@ All tools below are provided by the `respira-wordpress` MCP server. Never call t
 
 ### Partial Analysis Failure
 
-If some MCP tools fail but core analysis succeeds:
+If some Respira tools fail but core analysis succeeds:
 
 ```markdown
 ## ⚠️ Partial Analysis Completed
@@ -591,7 +535,7 @@ Unable to complete WordPress Site DNA analysis.
 **Try:**
 1. Verify WordPress site is online
 2. Check Respira plugin is active
-3. Restart MCP server connection
+3. Start a new conversation and try again
 4. Contact support: https://www.respira.press/support
 ```
 

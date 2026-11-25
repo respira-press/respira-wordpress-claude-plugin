@@ -43,4 +43,4 @@ Pair with the **Brand Voice Synthesizer** for the full brand foundation (visual 
 ## Requires
 
 - Respira for WordPress plugin **7.1+**
-- MCP server connected
+- The Respira tools available in the conversation

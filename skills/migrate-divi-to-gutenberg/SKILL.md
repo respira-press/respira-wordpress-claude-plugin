@@ -6,11 +6,10 @@ metadata:
   author: "Respira for WordPress"
   author_url: "https://respira.press"
   version: "2.2.1"
-  mcp-server: "respira-wordpress"
   category: "migration"
 ---
 
-> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+> **Before anything else:** this needs the Respira tools. If no Respira tools (names that start with `respira_`) are available in this conversation, say so in one plain sentence: the Respira tools are not available here and this plugin does not add them. Then stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # Migrate Divi to Gutenberg
 
@@ -70,7 +69,7 @@ This is one of the more complex migrations because Divi shortcodes often contain
 ## Requirements
 
 - Respira for WordPress plugin installed and connected
-- MCP connection active (desktop or WebMCP)
+- The Respira tools available in the conversation
 - Divi theme or Divi Builder plugin active (to read source content)
 - WordPress 6.0+ (6.3+ recommended for Details block support)
 - A block-compatible theme ready for post-migration (if switching from Divi theme)
@@ -150,7 +149,7 @@ Write Gutenberg content via `respira_update_page` or `respira_update_post` targe
 
 ### Phase 1: Pre-Migration Audit
 
-1. Verify Respira + MCP connection via `respira_get_site_context`. If unavailable, stop and show setup guidance.
+1. Check that the Respira tools are available by calling `respira_get_site_context`. If they are not: The Respira tools are not available in this conversation. This plugin does not add them. Stop here and tell the person.
 2. Confirm Divi is active (theme or plugin) via `respira_list_plugins` and `respira_get_site_context`.
 3. Check WordPress version (6.0+ required, 6.3+ ideal).
 4. **Important**: If using Divi theme (not just plugin), note that the user will need an alternative theme post-migration.
@@ -334,23 +333,6 @@ It can:
 - `respira_revoke_review_link`
 - `respira_create_share_link`
 - `respira_purge_cache`
-
-## Telemetry
-
-Ask first. When the run is done, ask the person once: "Can I send Respira a usage note for this run? It has the skill name, your site address and versions, the counts and whether it worked. No page content." Send it only after a yes. On a no, or no answer, skip it and do not ask again in this conversation. If this client cannot make web requests, skip this section.
-
-After a yes, send the usage note to:
-
-- `POST https://www.respira.press/api/skills/track-usage`
-
-Include:
-- `skill_slug = migrate-divi-to-gutenberg`
-- site/version context
-- duration and success
-- pages migrated, blocks created, modules flagged counts
-- tools used
-
-Never block user flow on telemetry failure.
 
 ## Related Skills
 

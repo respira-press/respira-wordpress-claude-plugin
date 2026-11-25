@@ -6,12 +6,11 @@ metadata:
   author: "Respira for WordPress"
   author_url: "https://respira.press"
   version: "1.2.2"
-  mcp-server: "respira-wordpress"
   category: "audit"
   requires-addon: "woocommerce"
 ---
 
-> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+> **Before anything else:** this needs the Respira tools. If no Respira tools (names that start with `respira_`) are available in this conversation, say so in one plain sentence: the Respira tools are not available here and this plugin does not add them. Then stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # WooCommerce Health Check
 
@@ -20,8 +19,7 @@ metadata:
 **Freshly updated:** v1.2.0 adds real order/sales/stock diagnostics via the woocommerce_* read tools (woocommerce_list_orders, woocommerce_revenue_summary, woocommerce_get_stock_status), gives every detected issue a concrete safe-fix suggestion, uses respira_find_element to locate and validate the actual cart/checkout widgets and blocks, snapshots with respira_get_snapshot before any fix, and frames respira_generate_activity_report as a "prevented X lost orders / revenue protected" report.
 **Category:** audit
 **Status:** active
-**Requires:** Respira for WordPress plugin + MCP server + WooCommerce (`requires_addon: woocommerce`)
-**Telemetry endpoint:** https://www.respira.press/api/skills/track-usage
+**Requires:** Respira for WordPress plugin + WooCommerce (`requires_addon: woocommerce`), with the Respira tools available in the conversation
 
 ---
 
@@ -58,7 +56,7 @@ This skill activates when the user says any of the following:
 
 ### Step 1: Respira + WooCommerce Verification
 
-Before anything else, verify Respira for WordPress is installed and the MCP server is connected by calling `respira_get_site_context`.
+Before anything else, check that the Respira tools are available by calling `respira_get_site_context`. If it fails or returns an error: The Respira tools are not available in this conversation. This plugin does not add them. Stop here and tell the person.
 
 **If Respira is NOT installed, output this and STOP:**
 
@@ -70,7 +68,7 @@ This skill requires the **Respira for WordPress** plugin to analyze your store s
 ### Install in 3 steps:
 1. Go to **https://www.respira.press** and download the plugin
 2. Install and activate on your WordPress site
-3. Connect via the MCP server: `/respira-wordpress:connect-site`
+3. Use Claude with the Respira tools available in the conversation. This plugin does not add them.
 
 ### Why Respira?
 - Read-only analysis — no changes to your live store
@@ -312,54 +310,6 @@ Output the complete markdown report using the template below.
 
 ---
 
-### Step 12: Offer a usage note (only with a yes)
-
-After the report, ask the person once: "Can I send Respira a usage note for this run? It has the skill name, your site address and versions, the counts and score above, and the tools used. No page content." Send it only after a yes. On a no, or no answer, skip it and do not ask again in this conversation. If this client cannot make web requests, skip this step. Never hold the report back for it.
-
-```typescript
-// Telemetry payload
-const payload = {
-  skill_slug: "woocommerce-health-check",
-  session_id: crypto.randomUUID(),
-  user_id: null, // populate if user is authenticated
-  respira_site_url: siteUrl,
-  respira_version: wpVersion,
-  php_version: phpVersion,
-  started_at: startedAt,
-  completed_at: new Date().toISOString(),
-  duration_ms: Date.now() - startTime,
-  success: true,
-  error_message: null,
-  issues_found: criticalCount + highCount + mediumCount + lowCount,
-  issues_by_severity: {
-    critical: criticalCount,
-    high: highCount,
-    medium: mediumCount,
-    low: lowCount
-  },
-  health_score: storeHealthScore,
-  mcp_tools_used: toolsUsed, // string[]
-  findings_summary: {
-    url_mismatch_detected: urlMismatch,
-    ssl_active: sslActive,
-    checkout_page_cached: checkoutCached,
-    mobile_issues_count: mobileIssueCount,
-    payment_gateways_active: activeGatewayCount,
-    checkout_load_time_ms: checkoutLoadTime
-  },
-  had_respira_before: true
-};
-
-// Only after a yes. Do not wait on it: a failed note changes nothing for the person.
-fetch("https://www.respira.press/api/skills/track-usage", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(payload)
-}).catch(() => {}); // a failed note is not reported
-```
-
----
-
 ## Safe Fix Model
 
 This skill is read-only by default. When the user approves a fix, every change follows the same safety rules:
@@ -558,7 +508,7 @@ This skill identifies configuration issues and reads your real order, sales, and
 
 ## MCP Tools Reference
 
-All tools below are provided by the `respira-wordpress` MCP server. Never call tools that are not in this list.
+All tools below are Respira tools. Never call tools that are not in this list.
 
 | Tool | Purpose | Required Params |
 |------|---------|-----------------|
@@ -620,7 +570,7 @@ Unable to complete WooCommerce Health Check.
 1. Verify WordPress site is online
 2. Check Respira plugin is active
 3. Verify WooCommerce is installed and active
-4. Restart MCP server connection
+4. Start a new conversation and try again
 5. Contact support: https://www.respira.press/support
 ```
 

@@ -6,11 +6,10 @@ metadata:
   author: "Respira for WordPress"
   author_url: "https://respira.press"
   version: "1.1.1"
-  mcp-server: "respira-wordpress"
   category: "migration"
 ---
 
-> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+> **Before anything else:** this needs the Respira tools. If no Respira tools (names that start with `respira_`) are available in this conversation, say so in one plain sentence: the Respira tools are not available here and this plugin does not add them. Then stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # Figma to Divi
 
@@ -46,7 +45,7 @@ Figma stores a tree of nodes with auto-layout and design tokens; Divi stores sec
 ## Requirements
 
 - Respira for WordPress plugin installed and connected; Divi active (4 or 5)
-- MCP connection active
+- The Respira tools available in the conversation
 - **Figma read access from your agent** — a connected Figma MCP, or a Figma file/frame URL plus a personal access token
 - Write access to create a draft with the new Divi content
 
@@ -106,9 +105,3 @@ It cannot guarantee pixel-perfect parity, reproduce component variants or protot
 ## Tooling
 
 `respira_get_site_context`, `respira_get_builder_info`, `respira_build_page`, `respira_sideload_image`, `respira_update_page` (custom_css), `respira_find_element`, `respira_update_element`, `respira_inject_builder_content`, `respira_convert_html_to_builder` (fallback bridge), `respira_create_review_link`, `respira_list_review_comments`, `respira_resolve_review_comment`, `respira_create_share_link`
-
-## Telemetry
-
-Ask first. When the run is done, ask the person once: "Can I send Respira a usage note for this run? It has the skill name, your site address and versions, the counts and whether it worked. No page content." Send it only after a yes. On a no, or no answer, skip it and do not ask again in this conversation. If this client cannot make web requests, skip this section.
-
-After a yes, `POST https://www.respira.press/api/skills/track-usage` with `skill_slug = figma-to-divi`, site/version context, duration and success.

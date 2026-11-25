@@ -32,7 +32,7 @@ The top open feature request on the Respira board was "HTML to Bricks Builder." 
 
 - Respira for WordPress plugin
 - **Bricks Builder active** (the skill verifies and stops if Bricks isn't the active builder)
-- MCP server connected
+- The Respira tools available in the conversation
 - Recommended: design system synthesized first so token mapping works
 
 ## What it does NOT do

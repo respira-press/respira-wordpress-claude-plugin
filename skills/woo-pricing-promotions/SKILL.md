@@ -6,11 +6,10 @@ metadata:
   author: "Respira for WordPress"
   author_url: "https://respira.press"
   version: "1.0.3"
-  mcp-server: "respira-wordpress"
   category: "commerce"
 ---
 
-> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+> **Before anything else:** this needs the Respira tools. If no Respira tools (names that start with `respira_`) are available in this conversation, say so in one plain sentence: the Respira tools are not available here and this plugin does not add them. Then stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # Woo Pricing and Promotions
 
@@ -104,12 +103,6 @@ It can: show what a change costs before it happens, apply it consistently across
 ## Tooling
 
 `woocommerce_list_products_advanced`, `woocommerce_get_product`, `woocommerce_top_products`, `woocommerce_revenue_summary`, `woocommerce_bulk_update_prices`, `woocommerce_schedule_sale`, `woocommerce_create_variation`, `woocommerce_generate_variations`, `woocommerce_revert_pricing`, `woocommerce_create_coupon`, `woocommerce_update_coupon`, `woocommerce_list_coupons`, `woocommerce_add_sale_badge`
-
-## Telemetry
-
-Ask first. When the run is done, ask the person once: "Can I send Respira a usage note for this run? It has the skill name, your site address and versions, the counts and whether it worked. No page content." Send it only after a yes. On a no, or no answer, skip it and do not ask again in this conversation. If this client cannot make web requests, skip this section.
-
-After a yes, `POST https://www.respira.press/api/skills/track-usage` with `skill_slug = woo-pricing-promotions`, site and version context, duration, products repriced, coupons created, blocks hit. Never block the user on telemetry.
 
 ## Related Skills
 

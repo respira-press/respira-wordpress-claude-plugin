@@ -51,7 +51,7 @@ consequences shape the workflow:
 
 - Respira for WordPress plugin 8.6.31 or newer
 - **Breakdance active** (the skill verifies and stops if Breakdance is not the active builder)
-- MCP server connected
+- The Respira tools available in the conversation
 - Recommended: design system or Design Direction set up first so variable binding has something to bind to
 
 ## What it does NOT do

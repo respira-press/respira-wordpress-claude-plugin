@@ -38,4 +38,4 @@ Never deletes a page directly. Even archive-candidates get a recommendation, not
 ## Requires
 
 - Respira for WordPress plugin
-- MCP server connected
+- The Respira tools available in the conversation

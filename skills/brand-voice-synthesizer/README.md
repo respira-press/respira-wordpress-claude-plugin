@@ -39,5 +39,5 @@ The **avoided lexicon** is the strongest signal. The agent will refuse to write 
 ## Requires
 
 - Respira for WordPress plugin **7.1+**
-- MCP server connected
+- The Respira tools available in the conversation
 - At least 3 published posts to sample (5+ for a confident analysis)

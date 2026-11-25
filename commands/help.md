@@ -11,7 +11,6 @@ Print the menu below, in this order, with brief descriptions:
 ```
 respira commands
 
-/respira-wordpress:connect-site         connect a WordPress site for the first time
 /respira-wordpress:edit-page            edit any page on a connected site
 /respira-wordpress:add-section          add a new section to a page (hero, testimonials, FAQ, etc.)
 /respira-wordpress:duplicate-page       make a safe copy of a page to experiment with
@@ -35,7 +34,6 @@ support
   email                   word@respira.press
   community               respira.press/community
   documentation           respira.press/docs
-  live telemetry          respira.press/live
 
 I am Mihai, and I build Respira. If you hit something Respira cannot do,
 I want to hear about it. Write to word@respira.press and it goes on the list for the next release.

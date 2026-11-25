@@ -6,11 +6,10 @@ metadata:
   author: "Respira for WordPress"
   author_url: "https://respira.press"
   version: "2.2.1"
-  mcp-server: "respira-wordpress"
   category: "migration"
 ---
 
-> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+> **Before anything else:** this needs the Respira tools. If no Respira tools (names that start with `respira_`) are available in this conversation, say so in one plain sentence: the Respira tools are not available here and this plugin does not add them. Then stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # Migrate WPBakery to Gutenberg
 
@@ -59,7 +58,7 @@ This skill parses the WPBakery shortcode tree, extracts content and settings, an
 
 ## What This Skill Does NOT Do
 
-- **Theme-bundled WPBakery elements** — Many themes add custom WPBakery elements (portfolio grids, team members, testimonial carousels, etc.). These are theme-specific and cannot be auto-mapped. They are flagged for manual recreation.
+- **Theme-bundled WPBakery elements** — Many themes bring their own WPBakery elements (portfolio grids, team members, testimonial carousels, etc.). These are theme-specific and cannot be auto-mapped. They are flagged for manual recreation.
 - **WPBakery addons** — Ultimate Addons for WPBakery, Starter Templates, etc. add proprietary shortcodes that are flagged, not converted.
 - **vc_grid/vc_masonry_grid** — Post grid elements with complex query settings need manual recreation using Query Loop block or a posts plugin.
 - **Design options** — WPBakery's Design Options panel (accessed via `css` attribute containing encoded CSS) stores background, border, padding as a single encoded string. Basic properties are extracted; complex combinations may be simplified.
@@ -71,7 +70,7 @@ This skill parses the WPBakery shortcode tree, extracts content and settings, an
 ## Requirements
 
 - Respira for WordPress plugin installed and connected
-- MCP connection active (desktop or WebMCP)
+- The Respira tools available in the conversation
 - WPBakery Page Builder plugin active (to ensure shortcodes render/parse)
 - WordPress 6.0+ (6.3+ recommended for Details block)
 - A block-compatible theme (often needed since WPBakery sites tend to run older themes)
@@ -157,7 +156,7 @@ Write Gutenberg content via `respira_update_page` or `respira_update_post` targe
 
 ### Phase 1: Pre-Migration Audit
 
-1. Verify Respira + MCP connection via `respira_get_site_context`. If unavailable, stop and show setup guidance.
+1. Check that the Respira tools are available by calling `respira_get_site_context`. If they are not: The Respira tools are not available in this conversation. This plugin does not add them. Stop here and tell the person.
 2. Confirm WPBakery is active via `respira_list_plugins`.
 3. Check WordPress version (6.0+ required, 6.3+ ideal).
 4. Identify active theme — note if it bundles WPBakery and adds custom elements.
@@ -351,23 +350,6 @@ It can:
 - `respira_revoke_review_link`
 - `respira_create_share_link`
 - `respira_purge_cache`
-
-## Telemetry
-
-Ask first. When the run is done, ask the person once: "Can I send Respira a usage note for this run? It has the skill name, your site address and versions, the counts and whether it worked. No page content." Send it only after a yes. On a no, or no answer, skip it and do not ask again in this conversation. If this client cannot make web requests, skip this section.
-
-After a yes, send the usage note to:
-
-- `POST https://www.respira.press/api/skills/track-usage`
-
-Include:
-- `skill_slug = migrate-wpbakery-to-gutenberg`
-- site/version context
-- duration and success
-- pages migrated, blocks created, elements flagged counts
-- tools used
-
-Never block user flow on telemetry failure.
 
 ## Related Skills
 

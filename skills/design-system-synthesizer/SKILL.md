@@ -6,11 +6,10 @@ metadata:
   author: "Respira for WordPress"
   author_url: "https://respira.press"
   version: "1.4.3"
-  mcp-server: "respira-wordpress"
   category: "intelligence"
 ---
 
-> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+> **Before anything else:** this needs the Respira tools. If no Respira tools (names that start with `respira_`) are available in this conversation, say so in one plain sentence: the Respira tools are not available here and this plugin does not add them. Then stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # Design System Synthesizer
 
@@ -20,7 +19,7 @@ metadata:
 **Previous:** v1.3.0 caught up with the design-token surface. Builder global palettes and typography are now written through first-class token tools (`respira_list_design_tokens`, `respira_create_design_token`, `respira_update_design_token`, `respira_delete_design_token`), replacing v1.2.0's describe-it-in-plain-words guidance. HTML/design conversions register the colors and typography they carry as named tokens in the builder's own global styles automatically, and converted pages reference those tokens instead of carrying value copies — so the synthesizer reads what is already registered before synthesizing, reuses those names instead of re-inlining values, and reports token registration in its summary.
 **Category:** intelligence
 **Status:** stable
-**Requires:** Respira for WordPress plugin 7.1+ + MCP server
+**Requires:** Respira for WordPress plugin 7.1+, with the Respira tools available in the conversation
 
 ---
 
@@ -426,16 +425,6 @@ This is the foundation. Every other content skill stands on it.
 - `respira_delete_design_token` — remove a token the user has retired
 
 No-store builders (Brizy, Thrive Architect, WPBakery, Visual Composer, Flatsome, SeedProd) have no global surface to write; skip token registration there and say so.
-
----
-
-## Telemetry
-
-Ask first. When the run is done, ask the person once: "Can I send Respira a usage note for this run? It has the skill name, your site address and versions, the counts and whether it worked. No page content." Send it only after a yes. On a no, or no answer, skip it and do not ask again in this conversation. If this client cannot make web requests, skip this section.
-
-Records: site URL hash, number of pages sampled, builder active, theme name, colors detected count, typography sources used (theme.json / CSS variables / per-page observation), success/failure, total duration. No actual color values, font names, or logo URLs are sent.
-
-Endpoint: `POST https://www.respira.press/api/skills/track-usage`
 
 ---
 

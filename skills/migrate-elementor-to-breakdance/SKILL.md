@@ -6,11 +6,10 @@ metadata:
   author: "Respira for WordPress"
   author_url: "https://respira.press"
   version: "2.2.1"
-  mcp-server: "respira-wordpress"
   category: "migration"
 ---
 
-> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+> **Before anything else:** this needs the Respira tools. If no Respira tools (names that start with `respira_`) are available in this conversation, say so in one plain sentence: the Respira tools are not available here and this plugin does not add them. Then stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # Migrate Elementor to Breakdance
 
@@ -62,7 +61,7 @@ Breakdance is a newer builder created by the Oxygen team with a focus on clean o
 ## Requirements
 
 - Respira for WordPress plugin installed and connected
-- MCP connection active (desktop or WebMCP)
+- The Respira tools available in the conversation
 - Elementor plugin active (to read source content)
 - Breakdance plugin installed and active (to write target content)
 - Read access to scan Elementor content
@@ -124,7 +123,7 @@ Write Breakdance content via `respira_inject_builder_content` with `builder=brea
 
 ### Phase 1: Pre-Migration Audit
 
-1. Verify Respira + MCP connection via `respira_get_site_context`. If unavailable, stop and show setup guidance.
+1. Check that the Respira tools are available by calling `respira_get_site_context`. If they are not: The Respira tools are not available in this conversation. This plugin does not add them. Stop here and tell the person.
 2. Confirm Elementor is active via `respira_list_plugins`.
 3. Confirm Breakdance is installed and active via `respira_list_plugins`.
 4. Inventory and scope the source pages with `respira_find_builder_targets` (builder=elementor) — a fast, ranked list of every Elementor-built page/post before you touch anything. Fall back to `respira_list_pages` / `respira_list_posts` + `respira_get_builder_info` to confirm builder per item where needed.
@@ -293,23 +292,6 @@ It can:
 - `respira_revoke_review_link`
 - `respira_create_share_link`
 - `respira_purge_cache`
-
-## Telemetry
-
-Ask first. When the run is done, ask the person once: "Can I send Respira a usage note for this run? It has the skill name, your site address and versions, the counts and whether it worked. No page content." Send it only after a yes. On a no, or no answer, skip it and do not ask again in this conversation. If this client cannot make web requests, skip this section.
-
-After a yes, send the usage note to:
-
-- `POST https://www.respira.press/api/skills/track-usage`
-
-Include:
-- `skill_slug = migrate-elementor-to-breakdance`
-- site/version context
-- duration and success
-- pages migrated, widgets converted, widgets flagged counts
-- tools used
-
-Never block user flow on telemetry failure.
 
 ## Related Skills
 

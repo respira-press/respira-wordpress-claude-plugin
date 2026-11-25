@@ -33,5 +33,5 @@ Each page gets a 0–18 score per dimension. The output prioritizes fixes by exp
 ## Requires
 
 - Respira for WordPress plugin
-- MCP server connected
+- The Respira tools available in the conversation
 - Recommended: a recent SpeedScan run so speed signals are current

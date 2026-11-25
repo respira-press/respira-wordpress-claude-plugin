@@ -41,4 +41,4 @@ respira.press/dashboard/art-direction: the saved direction, readiness with infer
 ## Requires
 
 - Respira for WordPress plugin **8.6.20+**
-- MCP server **8.3+** connected
+- The Respira tools available in the conversation

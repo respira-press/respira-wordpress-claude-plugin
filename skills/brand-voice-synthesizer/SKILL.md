@@ -6,11 +6,10 @@ metadata:
   author: "Respira for WordPress"
   author_url: "https://respira.press"
   version: "1.2.1"
-  mcp-server: "respira-wordpress"
   category: "intelligence"
 ---
 
-> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+> **Before anything else:** this needs the Respira tools. If no Respira tools (names that start with `respira_`) are available in this conversation, say so in one plain sentence: the Respira tools are not available here and this plugin does not add them. Then stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # Brand Voice Synthesizer
 
@@ -19,7 +18,7 @@ metadata:
 **Freshly updated:** v1.2.0 saves the voice to Site Memory with `respira_remember`, so every later session, in any AI client, reads it through `respira_get_site_context` with no extra call. The full profile stays with the user; the site keeps a distilled form that fits memory's 500-character entries. Plugins older than 8.3 keep the `respira_brand_voice` option. v1.1.0 wired the voice profile into the rest of the brand system. The extracted profile now persists to per-site memory via `respira_get_option` (diff first) + `respira_update_option`, cross-links explicitly with the Page Template Library and Design System Synthesizer skills so copy and layout share one brand foundation, and adds a brand-consistency report built from `respira_generate_activity_report` so you can see how on-voice recent content actually is.
 **Category:** intelligence
 **Status:** stable
-**Requires:** Respira for WordPress plugin 8.3+ for Site Memory (older plugins fall back to an option) + MCP server
+**Requires:** Respira for WordPress plugin 8.3+ for Site Memory (older plugins fall back to an option), with the Respira tools available in the conversation
 
 ---
 
@@ -273,11 +272,3 @@ If only one of the two artifacts exists, content skills should still use what's 
 Pairs with the Design System Synthesizer (`respira_design_system` via `respira_get_option`) and the Page Template Library. Use only `respira-wordpress` MCP tools; never invent a tool name.
 
 ---
-
-## Telemetry
-
-Ask first. When the run is done, ask the person once: "Can I send Respira a usage note for this run? It has the skill name, your site address and versions, the counts and whether it worked. No page content." Send it only after a yes. On a no, or no answer, skip it and do not ask again in this conversation. If this client cannot make web requests, skip this section.
-
-Records: site URL hash, number of posts sampled, total words analyzed, person detected, formality detected, success/failure. No actual phrases, no avoided words, no example paragraphs are sent.
-
-Endpoint: `POST https://www.respira.press/api/skills/track-usage`

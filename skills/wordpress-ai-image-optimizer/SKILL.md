@@ -6,11 +6,10 @@ metadata:
   author: "Respira for WordPress"
   author_url: "https://respira.press"
   version: "1.2.2"
-  mcp-server: "respira-wordpress"
   category: "performance"
 ---
 
-> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+> **Before anything else:** this needs the Respira tools. If no Respira tools (names that start with `respira_`) are available in this conversation, say so in one plain sentence: the Respira tools are not available here and this plugin does not add them. Then stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # WordPress AI Image Optimizer
 
@@ -67,7 +66,7 @@ AI-powered image optimization for WordPress sites. Automatically compresses, con
 ## Requirements
 
 - Respira for WordPress plugin installed and connected
-- MCP connection active (desktop or WebMCP)
+- The Respira tools available in the conversation
 - AI code editor with image processing tools (Claude Code, Cursor, etc.)
 - WooCommerce add-on (optional - for product image optimization)
 - Read access to scan images, write access to upload optimized versions

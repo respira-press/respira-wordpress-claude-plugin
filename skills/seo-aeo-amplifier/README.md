@@ -39,7 +39,7 @@ Use one of:
 ## Requirements
 
 - Respira for WordPress plugin
-- MCP connection to your WordPress site
+- The Respira tools available in the conversation
 - Optional WooCommerce add-on for Product schema
 
 ## Safety

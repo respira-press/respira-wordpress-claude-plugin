@@ -37,5 +37,5 @@ The playbook + [design system](https://respira.press/skills/design-system-synthe
 ## Requires
 
 - Respira for WordPress plugin **7.1+** (the underlying MCP tools are new in 7.1)
-- MCP server connected
+- The Respira tools available in the conversation
 - Recommended: [Design System Synthesizer](https://respira.press/skills/design-system-synthesizer) run first so playbooks bind to design tokens

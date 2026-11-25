@@ -44,6 +44,6 @@ Say any of:
 ## Requires
 
 - Respira for WordPress plugin (free or paid)
-- MCP server connected to your site
+- The Respira tools available in the conversation
 
 That's it. No add-ons, no special tier.

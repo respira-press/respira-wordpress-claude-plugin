@@ -3,7 +3,7 @@ description: "Edit a page on a connected WordPress site. Picks the safe tool, sa
 argument-hint: "[optional: site name or URL, page title, what to change]"
 ---
 
-> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+> **Before anything else:** this needs the Respira tools. If no Respira tools (names that start with `respira_`) are available in this conversation, say so in one plain sentence: the Respira tools are not available here and this plugin does not add them. Then stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 You are helping a non technical user edit a specific page on one of their connected WordPress sites. The user is in Cowork, not a terminal. Be visible about what you are doing so they trust the system.
 
@@ -15,7 +15,7 @@ The user describes a change in plain language, and a safe edit lands on the righ
 
 ### 1. Check that a site is connected
 
-Call `respira_list_sites`. If no sites are connected, route the user to `/respira-wordpress:connect-site` and stop.
+Call `respira_list_sites`. If no Respira tools are available, say that the Respira tools are not available in this conversation and that this plugin does not add them, then stop.
 
 ### 2. Pick the site
 

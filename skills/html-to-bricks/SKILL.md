@@ -6,11 +6,10 @@ metadata:
   author: "Respira for WordPress"
   author_url: "https://respira.press"
   version: "1.3.1"
-  mcp-server: "respira-wordpress"
   category: "migration"
 ---
 
-> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+> **Before anything else:** this needs the Respira tools. If no Respira tools (names that start with `respira_`) are available in this conversation, say so in one plain sentence: the Respira tools are not available here and this plugin does not add them. Then stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # HTML to Bricks Builder
 
@@ -18,7 +17,7 @@ metadata:
 **Updated:** 2026-10-04
 **Category:** migration
 **Status:** stable
-**Requires:** Respira for WordPress plugin 7.1+ + Bricks Builder active + MCP server
+**Requires:** Respira for WordPress plugin 7.1+ + Bricks Builder active, with the Respira tools available in the conversation
 
 ---
 
@@ -158,11 +157,3 @@ When the converted page is on a duplicate or a draft, share the draft with whoev
 - **In restyle mode, design system tokens take precedence over raw values.** When a CSS hex matches a design system color, use the token. In fidelity mode the file is the design: its own `:root` tokens register as Bricks tokens, and the site's direction is not applied.
 
 ---
-
-## Telemetry
-
-Ask first. When the run is done, ask the person once: "Can I send Respira a usage note for this run? It has the skill name, your site address and versions, the counts and whether it worked. No page content." Send it only after a yes. On a no, or no answer, skip it and do not ask again in this conversation. If this client cannot make web requests, skip this section.
-
-Records: site URL hash, Bricks version, HTML input size (bytes), elements converted count, design system bound, ACSS detected, success/failure, total duration. No HTML content, no element names, no page IDs sent.
-
-Endpoint: `POST https://www.respira.press/api/skills/track-usage`

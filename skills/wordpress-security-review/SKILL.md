@@ -6,12 +6,11 @@ metadata:
   author: "Respira for WordPress"
   author_url: "https://respira.press"
   version: "1.0.1"
-  mcp-server: "respira-wordpress"
   category: "audit"
   respira_min_version: "9.0.0"
 ---
 
-> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+> **Before anything else:** this needs the Respira tools. If no Respira tools (names that start with `respira_`) are available in this conversation, say so in one plain sentence: the Respira tools are not available here and this plugin does not add them. Then stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # WordPress Security Review
 
@@ -139,12 +138,6 @@ It can: check core files against WordPress.org, list every administrator and cre
 ## Tooling
 
 `respira_get_site_context`, `respira_run_security_audit`, `respira_list_plugins`, `respira_update_plugin`, `respira_update_theme`, `respira_update_core_security`, `respira_revoke_application_password`
-
-## Telemetry
-
-Ask first. When the run is done, ask the person once: "Can I send Respira a usage note for this run? It has the skill name, your site address and versions, the counts and whether it worked. No page content." Send it only after a yes. On a no, or no answer, skip it and do not ask again in this conversation. If this client cannot make web requests, skip this section.
-
-After a yes, `POST https://www.respira.press/api/skills/track-usage` with `skill_slug = wordpress-security-review`, site and version context, duration, indicator counts by severity, the number of known vulnerabilities and the number of fixes applied. No logins, credentials, file paths or IP addresses are sent. Never block the user on telemetry.
 
 ## Related Skills
 

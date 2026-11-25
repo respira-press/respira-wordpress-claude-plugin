@@ -3,7 +3,7 @@ description: "Run an accessibility, SEO, or performance check on a connected Wor
 argument-hint: "[optional: site, audit type]"
 ---
 
-> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+> **Before anything else:** this needs the Respira tools. If no Respira tools (names that start with `respira_`) are available in this conversation, say so in one plain sentence: the Respira tools are not available here and this plugin does not add them. Then stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 You are helping a non technical user audit one of their connected WordPress sites. The audit checks accessibility (WCAG / ADA), SEO, performance, or all three. Findings come back in plain language, ranked by impact, with offered fixes.
 

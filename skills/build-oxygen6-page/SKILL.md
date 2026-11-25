@@ -6,11 +6,10 @@ metadata:
   author: "Respira for WordPress"
   author_url: "https://respira.press"
   version: "1.1.0"
-  mcp-server: "respira-wordpress"
   category: "workflow"
 ---
 
-> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+> **Before anything else:** this needs the Respira tools. If no Respira tools (names that start with `respira_`) are available in this conversation, say so in one plain sentence: the Respira tools are not available here and this plugin does not add them. Then stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # Build an Oxygen 6 Page
 
@@ -18,8 +17,7 @@ metadata:
 **Updated:** 2026-09-13
 **Category:** workflow
 **Status:** stable
-**Requires:** Respira for WordPress plugin (7.4.10+) + MCP server, on a site running Oxygen 6 (Jenga)
-**Telemetry endpoint:** https://www.respira.press/api/skills/track-usage
+**Requires:** Respira for WordPress plugin (7.4.10+), on a site running Oxygen 6 (Jenga), with the Respira tools available in the conversation
 
 ---
 

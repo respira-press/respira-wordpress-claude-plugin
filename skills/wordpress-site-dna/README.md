@@ -16,13 +16,13 @@ WordPress Site DNA runs a comprehensive audit of your WordPress installation usi
 ## Requirements
 
 - Respira for WordPress plugin (any version)
-- Respira for WordPress MCP server connected to Claude
+- The Respira tools available in the conversation
 - WordPress 5.0+ (Gutenberg era)
 
 ## Installation
 
 1. Install Respira for WordPress from [respira.press](https://www.respira.press)
-2. Connect via MCP: `/respira-wordpress:connect-site`
+2. Use Claude with the Respira tools available in the conversation. This plugin does not add them.
 3. Open Claude and say: `"analyze my wordpress site"`
 
 ## Trigger phrases
@@ -49,19 +49,6 @@ plugins/respira-wordpress/skills/wordpress-site-dna/
     └── regression.json   ← Regression test suite
 ```
 
-## Telemetry
-
-Usage data is sent to `https://www.respira.press/api/skills/track-usage` after each run. Tracking is anonymous by default (no PII). Data collected:
-
-- Site URL (for analysis, not stored with personal data)
-- WordPress/PHP versions
-- Detected builders and plugin counts
-- Health score and issue counts
-- MCP tools used
-- Execution duration
-
-Telemetry is fire-and-forget — failures are silently swallowed and never affect skill output.
-
 ## Evaluation
 
 Run evaluations using the test cases in `/tests/`:
@@ -76,5 +63,4 @@ Run evaluations using the test cases in `/tests/`:
 - Initial release
 - Core analysis: WordPress/PHP versions, builders, plugins, security, performance
 - Health score calculation (0–100)
-- Telemetry integration
 - Respira for WordPress fix workflow recommendations

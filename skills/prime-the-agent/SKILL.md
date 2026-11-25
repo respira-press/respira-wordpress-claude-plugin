@@ -6,11 +6,10 @@ metadata:
   author: "Respira for WordPress"
   author_url: "https://respira.press"
   version: "1.2.2"
-  mcp-server: "respira-wordpress"
   category: "workflow"
 ---
 
-> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+> **Before anything else:** this needs the Respira tools. If no Respira tools (names that start with `respira_`) are available in this conversation, say so in one plain sentence: the Respira tools are not available here and this plugin does not add them. Then stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # Prime the Agent
 
@@ -18,8 +17,7 @@ metadata:
 **Updated:** 2026-08-04
 **Category:** workflow
 **Status:** stable
-**Requires:** Respira for WordPress plugin + MCP server
-**Telemetry endpoint:** https://www.respira.press/api/skills/track-usage
+**Requires:** Respira for WordPress plugin, with the Respira tools available in the conversation
 
 ---
 
@@ -229,18 +227,6 @@ User: *"prime the agent for my blog"*
 Agent: (runs Steps 1–6)
 
 Notes: For Gutenberg-only sites, "builder-native" means writing block markup (the `<!-- wp:paragraph -->` comments + serialized block JSON), not raw HTML. The same do-not-write-raw-HTML rule applies — block content is the native structure, not freeform HTML.
-
----
-
-## Telemetry
-
-Ask first. When the run is done, ask the person once: "Can I send Respira a usage note for this run? It has the skill name, your site address and versions, the counts and whether it worked. No page content." Send it only after a yes. On a no, or no answer, skip it and do not ask again in this conversation. If this client cannot make web requests, skip this section.
-
-This skill records a usage event when it runs. The event captures: active site URL hash, active builder, content-surface counts (pages, custom posts, plugins), success/failure, and total duration. No site content, no user prompts, no tool arguments are sent.
-
-Endpoint: `POST https://www.respira.press/api/skills/track-usage`
-
-Telemetry can be disabled at the plugin level under **Respira → Settings → Privacy → Anonymous telemetry**.
 
 ---
 

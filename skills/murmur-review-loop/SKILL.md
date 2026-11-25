@@ -6,12 +6,11 @@ metadata:
   author: "Respira for WordPress"
   author_url: "https://respira.press"
   version: "1.0.1"
-  mcp-server: "respira-wordpress"
   category: "workflow"
   respira_min_version: "8.9.0"
 ---
 
-> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+> **Before anything else:** this needs the Respira tools. If no Respira tools (names that start with `respira_`) are available in this conversation, say so in one plain sentence: the Respira tools are not available here and this plugin does not add them. Then stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # Murmur Review Loop
 
@@ -139,12 +138,6 @@ It can: send a link anyone can open, bring every note back with the exact spot i
 ## Tooling
 
 `respira_create_review_link`, `respira_list_review_links`, `respira_start_split_test`, `respira_get_split_test`, `respira_list_split_tests`, `respira_end_split_test`, `respira_list_review_comments`, `respira_get_review_comment`, `respira_reply_to_review_comment`, `respira_resolve_review_comment`, `respira_revoke_review_link`, `respira_create_share_link`, `respira_create_page_duplicate`, `respira_find_element`, `respira_update_element`, `respira_get_snapshot`
-
-## Telemetry
-
-Ask first. When the run is done, ask the person once: "Can I send Respira a usage note for this run? It has the skill name, your site address and versions, the counts and whether it worked. No page content." Send it only after a yes. On a no, or no answer, skip it and do not ask again in this conversation. If this client cannot make web requests, skip this section.
-
-After a yes, `POST https://www.respira.press/api/skills/track-usage` with `skill_slug = murmur-review-loop`, site and version context, duration, notes read, notes resolved and notes left open. No note text, reviewer names or email addresses are sent. Never block the user on telemetry.
 
 ## Related Skills
 

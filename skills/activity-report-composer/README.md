@@ -34,5 +34,5 @@ Calls `respira_generate_activity_report` (new in v7.1) to pull the structured da
 ## Requires
 
 - Respira for WordPress plugin **7.1+** (the underlying MCP tool is new in 7.1)
-- MCP server connected
+- The Respira tools available in the conversation
 - Audit log enabled (default ON)

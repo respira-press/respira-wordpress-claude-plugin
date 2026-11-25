@@ -6,11 +6,10 @@ metadata:
   author: "Respira for WordPress"
   author_url: "https://respira.press"
   version: "1.2.1"
-  mcp-server: "respira-wordpress"
   category: "intelligence"
 ---
 
-> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+> **Before anything else:** this needs the Respira tools. If no Respira tools (names that start with `respira_`) are available in this conversation, say so in one plain sentence: the Respira tools are not available here and this plugin does not add them. Then stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # Art Direction
 
@@ -18,7 +17,7 @@ metadata:
 **Updated:** 2026-09-13
 **Category:** intelligence
 **Status:** stable
-**Requires:** Respira for WordPress plugin 8.6.20+ + MCP server 8.3+
+**Requires:** Respira for WordPress plugin 8.6.20+, with the Respira tools available in the conversation
 
 ---
 
@@ -244,11 +243,3 @@ The same page also runs the Figma and Claude Design import lanes without an agen
 - `get_variable_defs` / `get_design_context`: NOT a respira tool, a different MCP server's — read a Figma file's variables or design context before converting to DTCG per the Figma Import Lane above
 
 ---
-
-## Telemetry
-
-Ask first. When the run is done, ask the person once: "Can I send Respira a usage note for this run? It has the skill name, your site address and versions, the counts and whether it worked. No page content." Send it only after a yes. On a no, or no answer, skip it and do not ask again in this conversation. If this client cannot make web requests, skip this section.
-
-Records: site URL hash, whether a direction was active at start, path taken (existing / synthesized / imported), import format when imported, check rounds until clean, unwaived fails fixed, rendered mode used, success/failure, total duration. No token values, no direction contents, no screenshots are sent.
-
-Endpoint: `POST https://www.respira.press/api/skills/track-usage`

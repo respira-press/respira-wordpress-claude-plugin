@@ -21,15 +21,13 @@
         "health_score_min": 70,
         "builders_detected": ["gutenberg"],
         "complexity_rating": "Simple",
-        "report_sections": ["Executive Summary", "Page Builders Detected", "Plugin Analysis", "Security Posture"],
-        "telemetry_sent": true
+        "report_sections": ["Executive Summary", "Page Builders Detected", "Plugin Analysis", "Security Posture"]
       },
       "pass_criteria": [
         "health_score >= 70",
         "exactly 1 builder detected",
         "complexity rating = Simple",
-        "all required report sections present",
-        "telemetry POST fired"
+        "all required report sections present"
       ]
     },
     {

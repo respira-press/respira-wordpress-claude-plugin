@@ -6,11 +6,10 @@ metadata:
   author: "Respira for WordPress"
   author_url: "https://respira.press"
   version: "1.0.4"
-  mcp-server: "respira-wordpress"
   category: "workflow"
 ---
 
-> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+> **Before anything else:** this needs the Respira tools. If no Respira tools (names that start with `respira_`) are available in this conversation, say so in one plain sentence: the Respira tools are not available here and this plugin does not add them. Then stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # Page Template Library Bootstrapper
 
@@ -18,7 +17,7 @@ metadata:
 **Updated:** 2026-08-13
 **Category:** workflow
 **Status:** stable
-**Requires:** Respira for WordPress plugin 7.1+ + MCP server
+**Requires:** Respira for WordPress plugin 7.1+, with the Respira tools available in the conversation
 
 ---
 
@@ -185,11 +184,3 @@ The playbook + design system + brand voice trio is the foundation for the whole 
 - Sample entries spawned from a playbook use generic personas (BrandQ, agency-A). Never real customer names.
 
 ---
-
-## Telemetry
-
-Ask first. When the run is done, ask the person once: "Can I send Respira a usage note for this run? It has the skill name, your site address and versions, the counts and whether it worked. No page content." Send it only after a yes. On a no, or no answer, skip it and do not ask again in this conversation. If this client cannot make web requests, skip this section.
-
-Records: site URL hash, builder, playbook slug, slot count, structure section count, whether design system was bound, whether sample spawn succeeded, success/failure. No slot names, no slot values, no playbook content sent.
-
-Endpoint: `POST https://www.respira.press/api/skills/track-usage`

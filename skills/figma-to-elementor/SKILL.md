@@ -6,11 +6,10 @@ metadata:
   author: "Respira for WordPress"
   author_url: "https://respira.press"
   version: "1.2.1"
-  mcp-server: "respira-wordpress"
   category: "migration"
 ---
 
-> **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
+> **Before anything else:** this needs the Respira tools. If no Respira tools (names that start with `respira_`) are available in this conversation, say so in one plain sentence: the Respira tools are not available here and this plugin does not add them. Then stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
 
 # Figma to Elementor
 
@@ -50,7 +49,7 @@ Figma and Elementor describe a layout in very different ways. Figma stores a tre
 ## Requirements
 
 - Respira for WordPress plugin installed and connected
-- MCP connection active (desktop or WebMCP)
+- The Respira tools available in the conversation
 - Elementor active on the target site (to write the page)
 - **Figma read access from your agent** — either a connected Figma MCP, or a Figma file/frame URL plus a Figma personal access token you can paste
 - Write access to create a draft duplicate with the new Elementor content
@@ -118,7 +117,7 @@ Respira writes Elementor as a simplified tree of `{ type, widget, settings, elem
 ## Execution Workflow
 
 ### Phase 1: Read and audit
-1. Verify Respira + MCP via `respira_get_site_context`; confirm Elementor is active via `respira_list_plugins`. If not connected, stop and show setup guidance.
+1. Check that the Respira tools are available by calling `respira_get_site_context`; confirm Elementor is active via `respira_list_plugins`. If they are not: The Respira tools are not available in this conversation. This plugin does not add them. Stop here and tell the person.
 2. Read the chosen Figma frame's node tree via the agent's Figma access.
 3. Build an inventory: node-type counts, smart-widget candidates, image fills to download, and flagged items (components with overrides, complex vectors/masks, prototyping, gradients beyond linear/radial).
 
@@ -196,23 +195,6 @@ Once the draft checks out, share the draft with whoever signs off. `respira_crea
 - `respira_list_review_comments`
 - `respira_resolve_review_comment`
 - `respira_create_share_link`
-
-## Telemetry
-
-Ask first. When the run is done, ask the person once: "Can I send Respira a usage note for this run? It has the skill name, your site address and versions, the counts and whether it worked. No page content." Send it only after a yes. On a no, or no answer, skip it and do not ask again in this conversation. If this client cannot make web requests, skip this section.
-
-After a yes, send the usage note to:
-
-- `POST https://www.respira.press/api/skills/track-usage`
-
-Include:
-- `skill_slug = figma-to-elementor`
-- site/version context
-- duration and success
-- frames built, widgets created, images imported, items flagged counts
-- tools used
-
-Never block user flow on telemetry failure.
 
 ## Related Skills
 
