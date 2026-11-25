@@ -1,13 +1,13 @@
 ---
-name: migrate-divi-to-gutenberg
+name: "migrate-divi-to-gutenberg"
 description: "Use when the user says 'migrate divi to gutenberg', 'convert divi to blocks', 'get off divi', or 'decommission divi'. Parses Divi shortcodes, maps modules to core blocks, and creates draft duplicates for review."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 2.2.1
-  mcp-server: respira-wordpress
-  category: migration
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "2.2.1"
+  mcp-server: "respira-wordpress"
+  category: "migration"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

@@ -1,13 +1,13 @@
 ---
-name: figma-to-gutenberg
+name: "figma-to-gutenberg"
 description: "Use when the user says 'figma to gutenberg', 'figma to blocks', or hands over a Figma frame to rebuild on a WordPress site that uses the block editor. Maps the Figma node tree to core Gutenberg blocks, registers the frame's palette in Global Styles, and writes to a draft, so nothing live is touched."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 1.1.1
-  mcp-server: respira-wordpress
-  category: migration
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "1.1.1"
+  mcp-server: "respira-wordpress"
+  category: "migration"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

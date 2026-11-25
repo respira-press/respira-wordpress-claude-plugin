@@ -1,13 +1,13 @@
 ---
-name: woo-catalog-perfection
+name: "woo-catalog-perfection"
 description: "Use when the user says 'fix my catalog for ai', 'improve my ai readiness score', 'get my catalog to 90', or 'my products keep getting rejected by google'. Runs an ordered fixlist that writes the missing alt text, descriptions, brands, GTINs, and category mappings, snapshotting before each change."
-license: MIT
+license: "MIT"
 metadata:
   author: "Respira for WordPress"
-  author_url: https://respira.press
-  version: 1.0.0
-  mcp-server: respira-wordpress
-  category: commerce
+  author_url: "https://respira.press"
+  version: "1.0.0"
+  mcp-server: "respira-wordpress"
+  category: "commerce"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

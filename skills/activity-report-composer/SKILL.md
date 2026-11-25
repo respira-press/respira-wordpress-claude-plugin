@@ -1,13 +1,13 @@
 ---
-name: activity-report-composer
+name: "activity-report-composer"
 description: "Use when the user asks for a client report, a monthly or activity report, a case study draft, or says 'what did i ship this month'. Turns the site audit log into a written report in one of six framings: agency client report, case study, internal recap, testimonial draft, build-in-public, personal recap."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 1.1.1
-  mcp-server: respira-wordpress
-  category: reporting
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "1.1.1"
+  mcp-server: "respira-wordpress"
+  category: "reporting"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

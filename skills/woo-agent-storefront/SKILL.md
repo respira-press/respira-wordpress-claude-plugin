@@ -1,13 +1,13 @@
 ---
-name: woo-agent-storefront
+name: "woo-agent-storefront"
 description: "Use when the user says 'make my store visible to chatgpt', 'set up product feeds', or 'make my store agent-ready', or asks about Google Merchant Center, a store llms.txt, or cart links for AI agents. Sets up product feeds in six formats and registers the catalog with the major platforms."
-license: MIT
+license: "MIT"
 metadata:
   author: "Respira for WordPress"
-  author_url: https://respira.press
-  version: 1.0.0
-  mcp-server: respira-wordpress
-  category: commerce
+  author_url: "https://respira.press"
+  version: "1.0.0"
+  mcp-server: "respira-wordpress"
+  category: "commerce"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

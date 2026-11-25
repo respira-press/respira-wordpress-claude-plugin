@@ -1,13 +1,13 @@
 ---
-name: prime-the-agent
+name: "prime-the-agent"
 description: "Use when starting a session on an existing WordPress site, or when the user says 'prime yourself', 'what builder does this site use', or 'give me a site briefing'. Loads the active site, detects the builder, loads inline schemas, reads the stored per-site brief, and sets the do-not-write-raw-HTML rule."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 1.2.2
-  mcp-server: respira-wordpress
-  category: workflow
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "1.2.2"
+  mcp-server: "respira-wordpress"
+  category: "workflow"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

@@ -1,13 +1,13 @@
 ---
-name: migrate-elementor-to-oxygen
+name: "migrate-elementor-to-oxygen"
 description: "Use when the user says 'migrate elementor to oxygen', 'convert elementor to oxygen', or 'rebuild elementor pages in oxygen'. Maps Elementor widgets to Oxygen components and creates draft duplicates for review."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 2.2.1
-  mcp-server: respira-wordpress
-  category: migration
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "2.2.1"
+  mcp-server: "respira-wordpress"
+  category: "migration"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

@@ -1,14 +1,14 @@
 ---
-name: wordpress-site-dna
+name: "wordpress-site-dna"
 description: "Use when the user says 'analyze my wordpress site', 'what is running on my site', 'site dna', or 'what plugins are on my site'. Detects every page builder, audits active versus dead-weight plugins, maps content structure, finds orphaned shortcodes, and checks performance and security posture."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 1.3.1
-  mcp-server: respira-wordpress
-  category: audit
-  respira_min_version: 8.9.0
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "1.3.1"
+  mcp-server: "respira-wordpress"
+  category: "audit"
+  respira_min_version: "8.9.0"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

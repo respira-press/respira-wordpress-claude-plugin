@@ -1,12 +1,12 @@
 ---
-name: respira-site-audit
+name: "respira-site-audit"
 description: "Use when asked to audit, score, or health-check a WordPress site or page. Runs SEO, AEO, readability, accessibility, performance, RankMath, and Core Web Vitals analyzers and presents a unified report with prioritised fixes."
-license: MIT
+license: "MIT"
 metadata:
-  short-description: Full site health check across SEO, AEO, accessibility, readability, and performance
-  version: 1.2.1
-  updated_at: 2026-10-31
-  respira_min_version: 8.9.0
+  short-description: "Full site health check across SEO, AEO, accessibility, readability, and performance"
+  version: "1.2.1"
+  updated_at: "2026-10-31"
+  respira_min_version: "8.9.0"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

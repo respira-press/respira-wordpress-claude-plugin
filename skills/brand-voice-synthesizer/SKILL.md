@@ -1,13 +1,13 @@
 ---
-name: brand-voice-synthesizer
+name: "brand-voice-synthesizer"
 description: "Use when the user says 'extract my brand voice', 'what is my writing style', or 'analyze my tone', or before any skill that writes copy for the site. Reads 5-10 published posts and persists tone, lexicon, sentence patterns, formality, signature phrases, and phrases the site never uses."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 1.2.1
-  mcp-server: respira-wordpress
-  category: intelligence
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "1.2.1"
+  mcp-server: "respira-wordpress"
+  category: "intelligence"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

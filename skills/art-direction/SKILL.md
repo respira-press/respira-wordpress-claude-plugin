@@ -1,13 +1,13 @@
 ---
-name: art-direction
+name: "art-direction"
 description: "Use on any page build, redesign, or 'make it look better' request on a site that has (or needs) a saved Art Direction. Loads the direction before the first element is written, plans tokens in two passes against the direction's donts and the known AI-default aesthetics, builds with tokens preserved, checks the result with respira_check_design, and mints a live preview. Also the import lane for Claude Design output and other design-system documents."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 1.2.1
-  mcp-server: respira-wordpress
-  category: intelligence
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "1.2.1"
+  mcp-server: "respira-wordpress"
+  category: "intelligence"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

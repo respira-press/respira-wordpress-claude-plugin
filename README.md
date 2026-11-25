@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="./assets/logo.png" alt="Respira for WordPress" width="160" />
-</p>
-
 # Respira for WordPress
 
 Respira lets Claude edit a WordPress site the way a careful person would: in the site's own page builder, one element at a time, with a snapshot taken before every page and post write. Ask for a new headline, a testimonials section, an SEO pass or a move from Elementor to Bricks, and Claude does it through Respira's tools instead of pasting raw HTML into your pages.

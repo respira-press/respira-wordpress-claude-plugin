@@ -1,13 +1,13 @@
 ---
-name: seo-aeo-amplifier
+name: "seo-aeo-amplifier"
 description: "Use when the user says 'run an seo aeo audit', 'improve my search visibility', 'optimize my site for search engines', or wants the site cited by AI answer engines. Audits on-page SEO and AEO, generates schema markup, and applies fixes on duplicates for review after a snapshot."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 1.3.3
-  mcp-server: respira-wordpress
-  category: performance
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "1.3.3"
+  mcp-server: "respira-wordpress"
+  category: "performance"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

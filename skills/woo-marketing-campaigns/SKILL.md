@@ -1,13 +1,13 @@
 ---
-name: woo-marketing-campaigns
+name: "woo-marketing-campaigns"
 description: "Use when the user says 'plan a campaign', 'promote this product', 'write the copy for our sale', 'what should we push this month', or 'draft the launch for this collection'. Reads what the store actually sells, drafts the campaign around it, and stages every page and product change for approval."
-license: MIT
+license: "MIT"
 metadata:
   author: "Respira for WordPress"
-  author_url: https://respira.press
-  version: 1.0.2
-  mcp-server: respira-wordpress
-  category: commerce
+  author_url: "https://respira.press"
+  version: "1.0.2"
+  mcp-server: "respira-wordpress"
+  category: "commerce"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

@@ -1,9 +1,9 @@
 ---
-name: multi-site-context
+name: "multi-site-context"
 description: "Manages context across multiple connected WordPress sites. Use whenever the user has more than one site connected, mentions a client site, talks about all sites or across sites, or references a site by name. Picks the right site without asking every time."
-license: MIT
+license: "MIT"
 metadata:
-  version: 1.1.0
+  version: "1.1.0"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

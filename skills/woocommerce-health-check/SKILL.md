@@ -1,14 +1,14 @@
 ---
-name: woocommerce-health-check
+name: "woocommerce-health-check"
 description: "Use when the user says 'why is my checkout broken', 'audit my woocommerce store', 'cart problems woocommerce', or 'losing sales woocommerce'. Diagnoses checkout and cart failures, AJAX mismatches, caching conflicts, payment gateway setup, and SSL enforcement."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 1.2.2
-  mcp-server: respira-wordpress
-  category: audit
-  requires-addon: woocommerce
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "1.2.2"
+  mcp-server: "respira-wordpress"
+  category: "audit"
+  requires-addon: "woocommerce"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

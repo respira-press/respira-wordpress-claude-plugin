@@ -1,13 +1,13 @@
 ---
-name: site-onboarding
+name: "site-onboarding"
 description: "Use when the user says 'get started with my site', 'connect to my wordpress site', 'what can you do on my site', or 'onboard'. Verifies connectivity, discovers the site architecture, maps the available MCP tools, and produces a site briefing."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 1.0.0
-  mcp-server: respira-wordpress
-  category: onboarding
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "1.0.0"
+  mcp-server: "respira-wordpress"
+  category: "onboarding"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

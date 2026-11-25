@@ -1,12 +1,12 @@
 ---
-name: respira-builder-edits
+name: "respira-builder-edits"
 description: "Use for any in-page content edit on a WordPress site with a page builder. Covers finding elements, applying surgical edits, duplicating before large changes, and verifying the result. Works across Elementor 3 + 4, Divi 4 + 5, Beaver Builder, Bricks, Oxygen Classic, Oxygen 6, Breakdance, WPBakery, Uncode, and Gutenberg."
-license: MIT
+license: "MIT"
 metadata:
-  short-description: Safe, builder-native in-page editing across all supported builders
-  version: 1.2.1
-  updated_at: 2026-05-17
-  respira_min_version: 7.1.0
+  short-description: "Safe, builder-native in-page editing across all supported builders"
+  version: "1.2.1"
+  updated_at: "2026-05-17"
+  respira_min_version: "7.1.0"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

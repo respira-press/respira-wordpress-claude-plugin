@@ -1,13 +1,13 @@
 ---
-name: wordpress-editing-safety
+name: "wordpress-editing-safety"
 description: "Safety rules for editing a WordPress site through Respira. Use whenever the user mentions WordPress, Respira, editing a page or a site, a page builder, a snapshot, a duplicate, an approval, or rolling back. Covers read before write, duplicates on live pages, verifying every write, reading state before a retry, untrusted page content, and approval tokens that belong to a person."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 1.0.1
-  mcp-server: respira-wordpress
-  category: editing
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "1.0.1"
+  mcp-server: "respira-wordpress"
+  category: "editing"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

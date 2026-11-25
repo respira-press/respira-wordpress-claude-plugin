@@ -1,13 +1,13 @@
 ---
-name: technical-debt-audit
+name: "technical-debt-audit"
 description: "Use when the user says 'clean up my wordpress', 'what is bloating my wordpress', 'find orphaned shortcodes', or 'scan for unused plugins'. Audits orphaned shortcodes from deleted plugins, unused plugins, database bloat, unused media, and leftover data from inactive builders."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 1.2.2
-  mcp-server: respira-wordpress
-  category: audit
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "1.2.2"
+  mcp-server: "respira-wordpress"
+  category: "audit"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

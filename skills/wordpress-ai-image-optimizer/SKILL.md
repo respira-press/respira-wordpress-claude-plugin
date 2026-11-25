@@ -1,13 +1,13 @@
 ---
-name: wordpress-ai-image-optimizer
+name: "wordpress-ai-image-optimizer"
 description: "Use when the user says 'optimize my wordpress images with ai', 'compress and optimize all images', 'audit my media library', or 'improve image performance'. Downloads images, compresses, converts to WebP, resizes and renames locally, re-uploads, and updates every content reference."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 1.2.2
-  mcp-server: respira-wordpress
-  category: performance
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "1.2.2"
+  mcp-server: "respira-wordpress"
+  category: "performance"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

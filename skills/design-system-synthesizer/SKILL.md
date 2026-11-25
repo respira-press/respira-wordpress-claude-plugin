@@ -1,13 +1,13 @@
 ---
-name: design-system-synthesizer
+name: "design-system-synthesizer"
 description: "Use when the user says 'build a design system for my site', 'extract design tokens', 'capture my brand', or 'build my style guide', or after a rebrand. Reads representative pages, theme files, and media to extract logo, colors, typography, spacing, and components, then writes a visible style-guide page."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 1.4.3
-  mcp-server: respira-wordpress
-  category: intelligence
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "1.4.3"
+  mcp-server: "respira-wordpress"
+  category: "intelligence"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

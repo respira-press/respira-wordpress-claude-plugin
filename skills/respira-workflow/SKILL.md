@@ -1,13 +1,13 @@
 ---
-name: respira-workflow
+name: "respira-workflow"
 description: "Sets the posture for working on a WordPress site through Respira: report what changed on the site, stay visible during long operations, be honest about limits, and send what Respira cannot do to the founder. Use whenever Respira is mentioned, the user references their WordPress site, or the user wants to edit a site."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 1.0.1
-  mcp-server: respira-wordpress
-  category: workflow
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "1.0.1"
+  mcp-server: "respira-wordpress"
+  category: "workflow"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

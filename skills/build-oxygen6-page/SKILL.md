@@ -1,13 +1,13 @@
 ---
-name: build-oxygen6-page
+name: "build-oxygen6-page"
 description: "Use when building or rebuilding a page, header, footer, or template on an Oxygen 6 (Jenga) site, or when a previous attempt produced a blank page, one raw HTML block, or 'Unknown element'. Hands the agent the Oxygen 6 element schemas and the Template Content Area rule. Not for Oxygen Classic."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 1.1.0
-  mcp-server: respira-wordpress
-  category: workflow
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "1.1.0"
+  mcp-server: "respira-wordpress"
+  category: "workflow"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

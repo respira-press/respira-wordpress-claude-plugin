@@ -1,13 +1,13 @@
 ---
-name: html-to-bricks
+name: "html-to-bricks"
 description: "Use when the user says 'convert this html to bricks' or 'paste html into bricks', or has a Webflow, Framer, CodePen, or old static export to bring into a Bricks site. Converts raw HTML and CSS into native Bricks elements, mapping colors, type, and spacing to design tokens, plus ACSS classes when installed."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 1.3.1
-  mcp-server: respira-wordpress
-  category: migration
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "1.3.1"
+  mcp-server: "respira-wordpress"
+  category: "migration"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

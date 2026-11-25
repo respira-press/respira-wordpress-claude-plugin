@@ -1,13 +1,13 @@
 ---
-name: conversion-audit
+name: "conversion-audit"
 description: "Use when the user says 'audit my conversion rate', 'cro check', 'find conversion leaks', or asks what is hurting conversion before a paid campaign or after a redesign. Scores six friction dimensions: above-the-fold clarity, CTA hierarchy, form length, social proof, speed, trust signals."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 1.0.1
-  mcp-server: respira-wordpress
-  category: audit
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "1.0.1"
+  mcp-server: "respira-wordpress"
+  category: "audit"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

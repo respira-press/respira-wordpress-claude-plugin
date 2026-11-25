@@ -1,13 +1,13 @@
 ---
-name: stale-content-detector
+name: "stale-content-detector"
 description: "Use when the user says 'find old content', 'what is stale', 'what needs refreshing', or 'what should i archive'. Categorizes pages and posts as fresh, aging, stale, or archive-candidate by age, traffic signal, and internal link count, with a refresh, redirect, or archive call per item."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 1.0.1
-  mcp-server: respira-wordpress
-  category: audit
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "1.0.1"
+  mcp-server: "respira-wordpress"
+  category: "audit"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

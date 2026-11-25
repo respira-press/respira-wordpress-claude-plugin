@@ -1,14 +1,14 @@
 ---
-name: murmur-review-loop
+name: "murmur-review-loop"
 description: "Use when the user says 'send this to my client', 'get feedback on this page', 'send a review link', 'what did the client say', or 'work through the review notes'. Sends a Murmur review link, reads the notes reviewers pin to the page, replies, applies each change on a duplicate, and resolves every note with the snapshot of the change. Also runs a Murmur split test when the person wants to compare two versions of a page with real visitors ('test this against the live page', 'which version gets more calls')."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 1.0.1
-  mcp-server: respira-wordpress
-  category: workflow
-  respira_min_version: 8.9.0
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "1.0.1"
+  mcp-server: "respira-wordpress"
+  category: "workflow"
+  respira_min_version: "8.9.0"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.

@@ -1,13 +1,13 @@
 ---
-name: figma-to-elementor
+name: "figma-to-elementor"
 description: "Use when the user says 'figma to elementor', 'build this figma design in elementor', or hands over a Figma frame to rebuild in WordPress. Maps the Figma node tree to Elementor widgets and containers and writes clean Elementor JSON into a draft duplicate, so nothing live is touched."
-license: MIT
+license: "MIT"
 metadata:
-  author: Respira for WordPress
-  author_url: https://respira.press
-  version: 1.2.1
-  mcp-server: respira-wordpress
-  category: migration
+  author: "Respira for WordPress"
+  author_url: "https://respira.press"
+  version: "1.2.1"
+  mcp-server: "respira-wordpress"
+  category: "migration"
 ---
 
 > **Before anything else:** this needs a connected Respira site. If no Respira tools (names that start with `respira_`) are available in this chat, the site is not connected yet: say so in one plain sentence, tell the person to run `/respira-wordpress:connect-site` (it adds their site once), and stop. Do not guess, do not invent a result, and do not carry on as if the tools had answered.
