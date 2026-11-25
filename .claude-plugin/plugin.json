@@ -1,0 +1,54 @@
+{
+  "name": "respira-wordpress",
+  "displayName": "Respira for WordPress",
+  "version": "1.5.0",
+  "description": "Edit WordPress sites with Claude in the site's own page builder: Elementor, Divi, Bricks, Gutenberg and more. Page and post edits are saved as a snapshot first and can be restored, and by default edits to a published page land on a draft you approve.",
+  "author": {
+    "name": "Respira",
+    "email": "word@respira.press",
+    "url": "https://www.respira.press"
+  },
+  "homepage": "https://www.respira.press/integrations/claude",
+  "repository": "https://github.com/respira-press/cowork-plugin-wordpress",
+  "license": "MIT",
+  "keywords": [
+    "wordpress",
+    "page-builders",
+    "elementor",
+    "divi",
+    "bricks",
+    "gutenberg",
+    "oxygen",
+    "breakdance",
+    "beaver-builder",
+    "woocommerce",
+    "seo",
+    "agency"
+  ],
+  "icon": "./assets/logo.png",
+  "documentationUrl": "https://www.respira.press/docs",
+  "supportUrl": "https://www.respira.press/community",
+  "privacyPolicyUrl": "https://www.respira.press/privacy",
+  "termsOfServiceUrl": "https://www.respira.press/terms",
+  "userConfig": {
+    "site_url": {
+      "type": "string",
+      "title": "WordPress site address",
+      "description": "The address of the WordPress site that has the Respira plugin, for example https://example.com. No slash at the end.",
+      "required": true
+    },
+    "site_key": {
+      "type": "string",
+      "title": "Respira site key",
+      "description": "In WordPress admin open Respira, then Settings, then API Keys, and add a new key. It is stored in your system's credential store, not in a file.",
+      "sensitive": true,
+      "required": true
+    },
+    "mcp_path": {
+      "type": "string",
+      "title": "Respira address on the site",
+      "description": "Leave as it is for every Respira tool. For the short Focus list of tools, use wp-json/respira/v1/mcp/focus.",
+      "default": "wp-json/respira/v1/mcp"
+    }
+  }
+}
